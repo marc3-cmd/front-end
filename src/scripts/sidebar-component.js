@@ -44,7 +44,7 @@ class Sidebar extends HTMLElement {
                 border-radius: 0px 18px 18px 0px;
                 position: relative;
                 transition: all .5s;
-                min-width: 82px;
+                min-width: 60px;
                 z-index: 2;
             }
 
@@ -174,7 +174,7 @@ class Sidebar extends HTMLElement {
             }
 
             #sidebar.open-sidebar {
-                min-width: 250px;
+                min-width: 200px;
             }
 
             #sidebar.open-sidebar .item-description {
