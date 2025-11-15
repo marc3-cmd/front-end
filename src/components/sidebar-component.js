@@ -42,7 +42,7 @@ class Sidebar extends HTMLElement {
                 background-color: #ffffff;
                 height: 100vh;
                 border-radius: 0px 18px 18px 0px;
-                position: relative;
+                position: fixed;
                 transition: all .5s;
                 min-width: 60px;
                 z-index: 2;

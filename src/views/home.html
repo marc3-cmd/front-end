@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | UseTrack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/partials/home.css">
+    <script src="../components/sidebar-component.js"></script>
+</head>
+<body>
+    <side-bar
+    style="position: absolute;">
+    </side-bar>
+
+    <main>
+        <!-- Seção de Boas-Vindas -->
+        <div id="welcome">
+            <h2>Bem-Vindo ao UseTrack!</h2>
+            <h4>Facilidade e organização em primeiro lugar.</h4>
+            <img src="/assets/img/logo-in-white.png" alt="logo-in-white" id="logo-in-white">
+        </div>
+
+        <!-- Cards -->
+        <div class="boxes">
+            <div class="card">
+                <div class="card_title">
+                    Contatos Ativos
+                </div>
+                <div class="card_stats">
+                    32
+                </div>
+                <div class="card_icon">
+                    <i class="fa-solid fa-address-book"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card_title">
+                    Tarefas Pendentes
+                </div>
+                <div class="card_stats">
+                    5
+                </div>
+                <div class="card_icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card_title">
+                    Novos Leads
+                </div>
+                <div class="card_stats">
+                    12
+                </div>
+                <div class="card_icon">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card_title">
+                    Reuniões Hoje
+                </div>
+                <div class="card_stats">
+                    2
+                </div>
+                <div class="card_icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lembretes -->
+        <div class="reminders">
+            <div class="reminder_header">
+                <h2>
+                    <i class="fa-solid fa-bell"></i>
+                    Lembretes
+                </h2>
+            </div>
+
+            <div class="add_reminder">
+                <button id="addReminderBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    Adicionar
+                </button>
+            </div>
+
+           <div class="reminder_section">
+            <input type="checkbox" class="reminder_checkbox">
+            <div class="reminder_content">
+            <span class="reminder_text">Preparar material de trabalho</span>
+            </div>
+            <button class="reminder_delete">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+           </div>
+
+           <div class="reminder_section completed">
+            <input type="checkbox" class="reminder_checkbox" checked>
+            <div class="reminder_content">
+            <span class="reminder_text">Fechar para inventário</span>
+            </div>
+            <button class="reminder_delete">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+           </div>
+
+           <div class="reminder_section">
+            <input type="checkbox" class="reminder_checkbox" >
+            <div class="reminder_content">
+            <span class="reminder_text">Fazer solicitação de materiais</span>
+            </div>
+            <button class="reminder_delete">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+           </div>
+        </div>
+    </main>
+</body>
+</html>
