@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/partials/contacts.css">
     <title>Contatos</title>
 </head>
-<header> 
-    <input type="search" id="site-search" name="site-search" placeholder="Pesquisar...">
-    <button type="submit">Pesquisar</button>
-    <side-bar></side-bar>
-</header>
 <body>
-    
+ <header class="navbar">
+  <side-bar></side-bar>
+        <div class="navbar-direita">
+           <input type="text" class="search-bar" placeholder="Pesquisar...">
+           <img src="../assets/notification-icon.png" alt="Notificações" class="notification-icon">
+           <img src="../assets/user-avatar.png" alt="Avatar do Usuário" class="user-avatar">
+        </div>  
+  </header>          
+    <div class="container">
+        <div class="Title">Contatos</div>
+        <div class="text">Gerencie seus contatos e leads</div>
+        <div class="Button">
+            <button class="btn btn-primary" onclick="location.href='add-contact.html'">Adicionar Contato</button>
+    </div>
 </body>
 <script src="../scripts/sidebar-component.js"></script>
 </html>

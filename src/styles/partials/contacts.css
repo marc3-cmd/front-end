@@ -1,0 +1,15 @@
+
+.navbar {
+    display: flex; /* Ativa o Flexbox no contêiner principal */
+    justify-content: space-between; /* Distribui o espaço: um item em cada extremidade */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    color: white;
+    padding: 10px 20px;
+    height: 60px; /* Altura fixa opcional */
+    margin: 15px;
+}
+.container {
+
+    margin: 20px;
+    background: #000;
+}
