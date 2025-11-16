@@ -4,35 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UseTrack</title>
+
     <link rel="stylesheet" href="../styles/partials/contacts.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+
     <script src="../components/sidebar-component.js"></script>
 </head>
 <body>
-  
-<side-bar 
-style="position: absolute;">
-</side-bar>
+    <side-bar></side-bar>
 
-    <main>
-      <header class="navbar">
-          <div class="nav-bar">
-            <input type="text" class="search-bar" placeholder="Pesquisar...">
-            <img src="../assets/notification-icon.png" alt="Notificações" class="notification-icon">
-            <img src="../assets/user-avatar.png" alt="Avatar" class="user-avatar">
-          </div>  
-      </header>
-        <div class="container">
-            <div class="header-row">
-              <div class="Title">Contatos</div>
-                <button class="btn-primary" onclick="location.href='add-contact.html'">Adicionar Contato +</button>
-              </div>
-              <div class="text">Gerencie seus contatos e leads</div>
-        </div>  
+    <header class="navbar">
+        <input type="text" class="search-bar" placeholder="Pesquisar...">
+        <img src="../assets/notification-icon.png" alt="Notificações" class="notification-icon">
+        <img src="../assets/user-avatar.png" alt="Avatar" class="user-avatar">
+    </header>
+    <main class="main">
+
+        <div class="header-row">
+            <div class="Title"><h3>Contatos</h3><br>Gerencie seus contatos e leads</div>
+            <button class="btn-primary" onclick="location.href='add-contact.html'">
+                <i>+</i>Novo Contato 
+            </button>
+        </div>
+
+
+        <div class="container_Search">
+          <div class="input_Wrapper">
+            <i class="fa fa-search icon_Search"></i>
+              <input type="text" class="input_Search" placeholder="Buscar Contatos">
+           </div>
+      </div>
+        <div class="contact-list">
+            <title><h2>Todos os Contatos</h2></title>
+        </div>
+
+
     </main>
-
-
- 
 
 </body>
 </html>
