@@ -1,15 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-.navbar {
-    display: flex; /* Ativa o Flexbox no contêiner principal */
-    justify-content: space-between; /* Distribui o espaço: um item em cada extremidade */
-    align-items: center; /* Alinha os itens verticalmente ao centro */
-    color: white;
-    padding: 10px 20px;
-    height: 60px; /* Altura fixa opcional */
-    margin: 15px;
+.main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 82px;
+    transition: margin-left 0.5s;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
 }
 .container {
+    width: fit-content;    
+    margin: 0 auto;            
+    margin-top: 50px;          
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    text-align: center;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);         
+}
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;            
+    width: 100%;
+    margin-bottom: 20px; 
+           
+}
 
-    margin: 20px;
-    background: #000;
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 80px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.search-bar {
+    padding: 16px 24px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 40px;
+    width: 400px;
+}
+.notification-icon, .user-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-left: 30px;
+}
+.btn-primary {
+    background-color: #6B00BD;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-left: 15px;
 }
