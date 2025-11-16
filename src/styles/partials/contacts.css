@@ -9,13 +9,13 @@ side-bar {
   position: fixed;
     top: 0;
     left: 0;
-    width: 80px; /* seu sidebar é estreito igual na imagem */
+    width: 80px; 
     height: 100vh;
     z-index: 9999;
 }
 .main {
-    margin-left: 80px;   /* acompanhando sidebar */
-    padding: 20px 30px;  /* pequeno espaçamento do topo */
+    margin-left: 80px;
+    padding: 20px 30px; 
 }
 .container_Search {
     width: 1100px;
@@ -30,7 +30,7 @@ side-bar {
     border-bottom: 1px solid #ddd;
 }
 
-/* WRAPPER DO INPUT – controla o ícone lá dentro */
+
 .input_Wrapper {
     position: relative;
     width: 100%;
@@ -41,7 +41,7 @@ side-bar {
     height: 62px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 10px 12px 10px 40px; /* espaço para o ícone */
+    padding: 10px 12px 10px 40px; 
     font-size: 1rem;
 }
 
@@ -71,10 +71,10 @@ side-bar {
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;      /* itens à direita igual na imagem */
+    justify-content: flex-end;    
     padding: 0 30px;
     background: white;
-    border-bottom: 1px solid #ddd;  /* linha cinza separando header do main */
+    border-bottom: 1px solid #ddd; 
 }
 .search-bar {
     padding: 16px 24px;
@@ -106,7 +106,7 @@ side-bar {
     width: 90%;
     margin: 40px auto;
     padding: 25px;
-    border: 2px solid #2ea8ff;
+    border: 1px solid #ccc;
     border-radius: 15px;
 }
 
@@ -136,7 +136,7 @@ side-bar {
     width: 55px;
     height: 55px;
     border-radius: 999px;
-    background: #6a0dad; /* roxo igual ao seu botão */
+    background: #6a0dad; 
     display: flex;
     align-items: center;
     justify-content: center;
