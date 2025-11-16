@@ -102,3 +102,65 @@ side-bar {
     width: 278px;
     height: 86px;
 }
+.contacts-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 25px;
+    border: 2px solid #2ea8ff;
+    border-radius: 15px;
+}
+
+.contacts-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.contacts-title span {
+    color: #666;
+    font-weight: 400;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 18px 22px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    gap: 20px;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 999px;
+    background: #6a0dad; /* roxo igual ao seu botão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.details {
+    margin-top: 5px;
+    display: flex;
+    gap: 25px;
+    color: #555;
+    font-size: 14px;
+    align-items: center;
+}
+
+.details i {
+    margin-right: 6px;
+    color: #555;
+}
