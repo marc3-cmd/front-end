@@ -201,13 +201,13 @@ class Sidebar extends HTMLElement {
                         <img src="/assets/img/resized.png" id="user_avatar" alt="Avatar">
                         <div id="user_infos">
                             <span class="item-description">USETRACK</span>
-                            <span class="item-description">Bem-Vindo!</span>
+                            <span class="item-description">CRM</span>
                         </div>
                     </div>
 
                     <ul id="side_items">
                         <li class="side-item active">
-                            <a href="#">
+                            <a href="../views/home.html">
                                 <i class="fa-solid fa-house"></i>
                                 <span class="item-description">Home</span>
                             </a>
@@ -219,7 +219,7 @@ class Sidebar extends HTMLElement {
                             </a>
                         </li>
                         <li class="side-item">
-                            <a href="#">
+                            <a href="../views/tasks.html">
                                 <i class="fa-solid fa-check-double"></i>
                                 <span class="item-description">Tarefas</span>
                             </a>

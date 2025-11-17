@@ -14,7 +14,130 @@
     </side-bar>
 
     <main>
-        
+        <div class="task_header">
+            <h2>Tarefas</h2>
+            <h4>Gerencie suas atividades e compromissos</h4>
+        </div>
+
+        <div class="new_task">
+                <button id="addTaskBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    Nova Tarefa
+                </button>
+            </div>
+
+        <div class="task_cards">
+            <div class="task_dashboard">
+                <div class="dash_content">
+                    <i class="fa-solid fa-clock " id="fa-clock"></i>
+                    <div class="dash_title">
+                        Pendentes
+                    </div>
+
+                    <div class="dash_stats">3</div>
+                </div>
+            </div>
+
+            <div class="task_dashboard">
+                <div class="dash_content">
+                    <i class="fa-solid fa-circle-check" id="fa-check"></i>
+                    <div class="dash_title">
+                        Concluídas
+                    </div>
+
+                    <div class="dash_stats">1</div>
+                </div>
+            </div>
+
+            <div class="task_dashboard">
+                <div class="dash_content">
+                    <i class="fa-solid fa-calendar-days" id="fa-calendar"></i>
+                    <div class="dash_title">
+                        Hoje
+                    </div>
+
+                    <div class="dash_stats">1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pending_section">
+            <div class="pending_header">
+                <h2>Tarefas Pendentes</h2>
+            </div>
+
+            <div class="pending_task">
+                <input type="checkbox" class="pending_checkbox">
+                <div class="pending_content">
+                    <span>Ligar para o fornecedor</span>
+                    <span class="subtitle">Fazer novo pedido</span>
+                    <div class="pending_stats">
+                        <div class="date_stats">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span>17/11/2025</span>
+                        </div>
+
+                        <div class="hour_state">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>15:00</span>
+                        </div>
+
+                        <div id="priority-stats">Alta</div>
+                    </div>
+                    <button class="pending_delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pending_task">
+                <input type="checkbox" class="pending_checkbox">
+                <div class="pending_content">
+                    <span>Reunião com representante</span>
+                    <span class="subtitle">Alinhar pendências</span>
+                    <div class="pending_stats">
+                        <div class="date_stats">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span>21/11/2025</span>
+                        </div>
+                        
+                        <div class="hour_state">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>13:30</span>
+                        </div>
+
+                        <div id="priority-medium">Média</div>
+                    </div>
+                    <button class="pending_delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pending_task">
+                <input type="checkbox" class="pending_checkbox">
+                <div class="pending_content">
+                    <span>Programar entrega de pedidos</span>
+                    <span class="subtitle">Pedido 43589, 784235</span>
+                    <div class="pending_stats">
+                        <div class="date_stats">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span>17/11/2025</span>
+                        </div>
+                        
+                        <div class="hour_state">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>15:00</span>
+                        </div>
+
+                        <div id="priority-stats">Alta</div>
+                    </div>
+                    <button class="pending_delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>

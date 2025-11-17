@@ -19,3 +19,243 @@ body {
     background-color: #e3e9f7
 ;
 }
+
+.task_header {
+display: flex;
+flex-direction: column;
+padding: 20px;
+color: #333;
+}
+
+.task_header h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.task_header h4 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.new_task {
+    position: absolute;
+    right: 25px;
+    top: 10%;
+}
+
+.task_cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.task_dashboard {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 150px;
+    transition: 0.5s;
+}
+
+.task_dashboard:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+.dash_title {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.dash_stats {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1;
+    margin-bottom: 5px;
+    margin-top: 1.5rem;
+}
+
+.pending_section {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 200px;
+    max-width: 125vh;
+}
+
+.pending_header {
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pending_task {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 15px;
+    padding: 15px;
+    background-color: #edeef5;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pending_checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    background-color: white;
+
+
+}
+
+.pending_checkbox:checked {
+    background-color: #8B5CF6;
+    border-color: #8B5CF6;
+}
+
+.pending_checkbox:checked::before {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pending_content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #000;
+    font-weight: 500;
+}
+
+.pending_stats {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: #374151;
+
+}
+
+.pending_delete {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.pending_delete:hover {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.subtitle {
+    color: #374151;
+}
+
+#addTaskBtn {
+    border-radius: 8px;
+    width: 120px;
+    height: 30px;
+    border: none;
+    background-color: #8B5CF6;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 0.9rem
+}
+
+#addTaskBtn:hover {
+    background-color: #b7becc;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+#fa-clock {
+    position: absolute;
+    right: 25px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #FF9800;
+}
+
+#fa-check {
+    position: absolute;
+    right: 25px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #77DD77;
+}
+
+#fa-calendar {
+    position: absolute;
+    right: 25px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #84B6F4;
+}
+
+#priority-stats {
+    background-color: #FF0000;
+    color: #FF0000;
+    border-radius: 30px;
+    height: auto;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#priority-stats:hover {
+    background-color: #edeef5;
+}
+
+#priority-medium {
+    background-color: #d1d5db;
+    color: #FF9800;
+    border-radius: 30px;
+    height: auto;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+}

@@ -86,7 +86,7 @@ body {
 }
 
 .card_stats {
-     font-size: 1.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #333;
     line-height: 1;
@@ -130,6 +130,7 @@ body {
 
 .reminder_section {
     display: flex;
+    flex-direction: center;
     align-items: center;
     margin-bottom: 10px;
     gap: 15px;
@@ -155,18 +156,32 @@ body {
 }
 
 .reminder_checkbox {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     border: 2px solid #d1d5db;
     cursor: pointer;
     transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    background-color: white;
+}
+
+.reminder_checkbox:checked {
+    background-color: #8B5CF6;
+    border-color: #8B5CF6;
 }
 
 .reminder_checkbox:checked::before {
     content: '✓';
     color: white;
     font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,7 +232,7 @@ body {
 }
 
 #addReminderBtn:hover {
-    background-color: #e3e9f7;
+    background-color: #b7becc;
     color: #333;
     transform: translateY(-2px);
 }
