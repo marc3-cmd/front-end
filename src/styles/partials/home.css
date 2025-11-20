@@ -215,6 +215,78 @@ body {
     background-color: #fef2f2;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal_body {
+    padding: 20px;
+}
+
+.modal_content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal_header h3 {
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.close {
+    color: #9ca3af;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: ef4444;
+}
+
+.modal_footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 25px;
+    border-top: 1px solid #e5e7eb;
+}
+
 #addReminderBtn {
     border-radius: 8px;
     width: 100px;
@@ -235,4 +307,54 @@ body {
     background-color: #b7becc;
     color: #333;
     transform: translateY(-2px);
+}
+
+#newReminderText {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+#newReminderText:focus {
+    outline: none;
+    border-color: #8B5CF6;
+}
+
+#cancelReminderBtn, #saveReminderBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#cancelReminderBtn {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+#cancelReminderBtn:hover {
+    background-color: #e5e7eb;
+}
+
+#saveReminderBtn {
+    background-color: #8B5CF6;
+    color: white;
+}
+
+#saveReminderBtn:hover {
+    background-color: #7c3aed;
+    transform: translateY(-2px);
+}
+
+#saveReminderBtn:disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+    transform: none;
 }

@@ -88,36 +88,25 @@
                 </button>
             </div>
 
-           <div class="reminder_section">
-            <input type="checkbox" class="reminder_checkbox">
-            <div class="reminder_content">
-            <span class="reminder_text">Preparar material de trabalho</span>
+        <!-- Modal -->
+    <div id="reminderModal" class="modal">
+        <div class="modal_content">
+            <div class="modal_header">
+                <h3>Adicionar Lembrete</h3>
+                <span class="close">&times;</span>
             </div>
-            <button class="reminder_delete">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-           </div>
+            
+            <div class="modal_body">
+                <textarea id="newReminderText" placeholder="Digite seu lembrete aqui..." rows="4"></textarea>
+            </div>
 
-           <div class="reminder_section completed">
-            <input type="checkbox" class="reminder_checkbox" checked>
-            <div class="reminder_content">
-            <span class="reminder_text">Fechar para inventário</span>
+            <div class="modal_footer">
+                <button id="cancelReminderBtn">Cancelar</button>
+                <button id="saveReminderBtn">Salvar</button>
             </div>
-            <button class="reminder_delete">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-           </div>
-
-           <div class="reminder_section">
-            <input type="checkbox" class="reminder_checkbox" >
-            <div class="reminder_content">
-            <span class="reminder_text">Fazer solicitação de materiais</span>
-            </div>
-            <button class="reminder_delete">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-           </div>
         </div>
-    </main>
+    </div>
+
+    <script src="../scripts/modal/reminder.js"></script>
 </body>
 </html>
