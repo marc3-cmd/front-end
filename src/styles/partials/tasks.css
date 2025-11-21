@@ -186,6 +186,131 @@ color: #333;
     color: #374151;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal_body {
+    padding: 25px;
+}
+
+.modal_content {
+    background-color: #fff;
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    max-height: 90vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    background: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal_header h3 {
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.close {
+    color: #9ca3af;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ef4444;
+}
+
+.form_group {
+    margin-bottom: 15px;
+}
+
+.form_row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    align-items: flex-end;
+}
+
+.form_row .form_group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form_row .form_group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #374151;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.form_group input,
+.form_group textarea,
+.form_group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form_group input:focus,
+.form_group textarea:focus,
+.form_group select:focus {
+    outline: none;
+    border-color: #8B5CF6;
+}
+
+.modal_footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid #e5e7eb;
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-radius: 0 0 15px 15px;
+}
+
 #addTaskBtn {
     border-radius: 8px;
     width: 120px;
@@ -206,6 +331,26 @@ color: #333;
     background-color: #b7becc;
     color: #333;
     transform: translateY(-2px);
+}
+
+#cancelTaskBtn, #saveTaskBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+#cancelTaskBtn {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+#cancelTaskBtn:hover {
+    background-color: #e5e7eb;
 }
 
 #fa-clock {
@@ -257,4 +402,106 @@ color: #333;
     width: 70px;
     display: flex;
     justify-content: center;
+}
+
+.priority-high {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+}
+
+.priority-medium {
+    background-color: #fef3c7;
+    color: #d97706;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+}
+
+.priority-low {
+    background-color: #d1fae5;
+    color: #059669;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+}
+
+.pending_task.completed {
+    opacity: 0.8;
+    background-color: #f8fafc;
+}
+
+.pending_task.completed .pending_content span:first-child {
+    text-decoration: line-through;
+    color: #6b7280;
+}
+
+.pending_task.completed .pending_content .subtitle {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1001;
+    animation: slideInRight 0.3s ease-out;
+    max-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.notification-success {
+    background-color: #10b981;
+}
+
+.notification-error {
+    background-color: #ef4444;
+}
+
+.notification-info {
+    background-color: #8B5CF6;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 }

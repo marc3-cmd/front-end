@@ -16,8 +16,7 @@ main {
 }
 
 body {
-    background-color: #e3e9f7
-;
+    background-color: #e3e9f7;
 }
 
 #welcome {
@@ -130,7 +129,6 @@ body {
 
 .reminder_section {
     display: flex;
-    flex-direction: center;
     align-items: center;
     margin-bottom: 10px;
     gap: 15px;
@@ -276,7 +274,7 @@ body {
 }
 
 .close:hover {
-    color: ef4444;
+    color: #ef4444;
 }
 
 .modal_footer {

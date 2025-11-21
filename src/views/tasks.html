@@ -69,20 +69,20 @@
             <div class="pending_task">
                 <input type="checkbox" class="pending_checkbox">
                 <div class="pending_content">
-                    <span>Ligar para o fornecedor</span>
-                    <span class="subtitle">Fazer novo pedido</span>
+                    <span></span>
+                    <span class="subtitle"></span>
                     <div class="pending_stats">
                         <div class="date_stats">
                             <i class="fa-solid fa-calendar"></i>
-                            <span>17/11/2025</span>
+                            <span></span>
                         </div>
 
                         <div class="hour_state">
                             <i class="fa-solid fa-clock"></i>
-                            <span>15:00</span>
+                            <span></span>
                         </div>
 
-                        <div id="priority-stats">Alta</div>
+                        <div id="priority-stats"></div>
                     </div>
                     <button class="pending_delete">
                         <i class="fa-solid fa-trash"></i>
@@ -93,20 +93,20 @@
             <div class="pending_task">
                 <input type="checkbox" class="pending_checkbox">
                 <div class="pending_content">
-                    <span>Reunião com representante</span>
-                    <span class="subtitle">Alinhar pendências</span>
+                    <span>e</span>
+                    <span class="subtitle"></span>
                     <div class="pending_stats">
                         <div class="date_stats">
                             <i class="fa-solid fa-calendar"></i>
-                            <span>21/11/2025</span>
+                            <span></span>
                         </div>
                         
                         <div class="hour_state">
                             <i class="fa-solid fa-clock"></i>
-                            <span>13:30</span>
+                            <span></span>
                         </div>
 
-                        <div id="priority-medium">Média</div>
+                        <div id="priority-medium"></div>
                     </div>
                     <button class="pending_delete">
                         <i class="fa-solid fa-trash"></i>
@@ -117,20 +117,20 @@
             <div class="pending_task">
                 <input type="checkbox" class="pending_checkbox">
                 <div class="pending_content">
-                    <span>Programar entrega de pedidos</span>
-                    <span class="subtitle">Pedido 43589, 784235</span>
+                    <span></span>
+                    <span class="subtitle"></span>
                     <div class="pending_stats">
                         <div class="date_stats">
                             <i class="fa-solid fa-calendar"></i>
-                            <span>17/11/2025</span>
+                            <span></span>
                         </div>
                         
                         <div class="hour_state">
                             <i class="fa-solid fa-clock"></i>
-                            <span>15:00</span>
+                            <span></span>
                         </div>
 
-                        <div id="priority-stats">Alta</div>
+                        <div id="priority-stats"></div>
                     </div>
                     <button class="pending_delete">
                         <i class="fa-solid fa-trash"></i>
@@ -139,5 +139,54 @@
             </div>
         </div>
     </main>
+    
+    <div id="taskModal" class="modal">
+    <div class="modal_content">
+        <div class="modal_header">
+            <h3>Nova Tarefa</h3>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal_body">
+            <form id="taskForm">
+                <div class="form_group">
+                    <label for="taskTitle">Título da Tarefa *</label>
+                    <input type="text" id="taskTitle" placeholder="Digite o título da tarefa" required>
+                </div>
+                
+                <div class="form_group">
+                    <label for="taskDescription">Descrição</label>
+                    <textarea id="taskDescription" placeholder="Digite a descrição da tarefa..." rows="3"></textarea>
+                </div>
+                
+                <div class="form_row">
+                    <div class="form_group">
+                        <label for="taskDate">Data</label>
+                        <input type="date" id="taskDate">
+                    </div>
+                    
+                    <div class="form_group">
+                        <label for="taskTime">Hora</label>
+                        <input type="time" id="taskTime">
+                    </div>
+                </div>
+                
+                <div class="form_group">
+                    <label for="taskPriority">Prioridade</label>
+                    <select id="taskPriority">
+                        <option value="low">Baixa</option>
+                        <option value="medium">Média</option>
+                        <option value="high">Alta</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal_footer">
+            <button id="cancelTaskBtn">Cancelar</button>
+            <button id="saveTaskBtn">Salvar Tarefa</button>
+        </div>
+    </div>
+</div>
+
+<script src="..//scripts/modal/task-modal.js"></script>
 </body>
 </html>
