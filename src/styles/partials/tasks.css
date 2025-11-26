@@ -353,6 +353,16 @@ color: #333;
     background-color: #e5e7eb;
 }
 
+#saveTaskBtn {
+    background-color: #8B5CF6;
+    color: white;
+}
+
+#saveTaskBtn:hover {
+    background-color: #e5e7eb;
+    color: #333;
+}
+
 #fa-clock {
     position: absolute;
     right: 25px; 
