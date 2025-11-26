@@ -1,0 +1,153 @@
+.nav {
+    display: flex;
+    gap: 25px;
+    padding: 10px;
+    font-family: Arial;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.tab.active {
+    opacity: 1;
+    font-weight: bold;
+    padding: 6px 15px;
+    border-radius: 8px;
+    background: #f4f5f7;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px 0;
+    font-size: 17px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.profile-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+.title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+}
+
+.subtitle {
+    color: #555;
+    margin-top: 4px;
+    margin-bottom: 30px;
+}
+
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.profile-avatar {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ccc;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-upload {
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-upload:hover {
+    background: #f3f4f6;
+}
+
+.photo-info {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 6px;
+}
+
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #f9fafb;
+    margin-bottom: 15px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+}
+
+.textarea {
+    width: 100%;
+    height: 130px;
+    padding: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+}
+.profile-card {
+    display: none;
+}
+
+.profile-card.active {
+    display: block;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UseTrack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+    <script src="../components/sidebar-component.js"></script>
+    <link rel="stylesheet" href="../styles/partials/settings.css">
+    <link rel="stylesheet" href="../styles/partials/SideNavBar.css">
+    <link rel="stylesheet" href="../styles/partials/ContainerBt.css">
+    <script defer src="../components/NavSettings.js"></script>
+</head>
+<body>
+    <side-bar></side-bar>
+     <header class="navbar">
+        <input type="text" class="search-bar" placeholder="Pesquisar...">
+        <img src="../assets/notification-icon.png" alt="Notificações" class="notification-icon">
+        <img src="../assets/user-avatar.png" alt="Avatar" class="user-avatar">
+    </header>
+    <main class="main">
+        <div class="header-row">
+        <div class="Title">    
+        <h3>Configurações</h3><br>Gerencie suas preferências e configurações do sistema
+        </div>
+        <button class="btn">Salvar Alterações</button>
+        </div>
+        <div class="nav">
+    <button class="tab active" data-tab="perfil">Perfil</button>
+    <button class="tab" data-tab="empresa">Empresa</button>
+    <button class="tab" data-tab="seguranca">Segurança</button>
+</div>
+
+<div class="conteudo">
+    <div id="perfil" class="tab-content active">Conteúdo de Perfil</div>
+    <div id="empresa" class="tab-content">Conteúdo da Empresa</div>
+    <div id="seguranca" class="tab-content">Configurações de Segurança</div>
+</div>
+
+<div id="card-perfil" class="profile-card active">
+
+    <h2 class="title">Informações Pessoais</h2>
+    <p class="subtitle">Atualize seus dados pessoais e preferências</p>
+
+    <div class="profile-row">
+        <div class="profile-avatar">
+            <img id="preview-img" src="/front-end/assets/img/profile-photo.JPG" alt="profile-photo">
+        </div>
+
+        <div class="profile-actions">
+            <button class="btn-upload">Alterar Foto</button>
+            <p class="photo-info">JPG, PNG até 2MB</p>
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div>
+            <label class="label">Nome Completo</label>
+            <input class="input" type="text" placeholder="João Silva">
+        </div>
+
+        <div>
+            <label class="label">Email</label>
+            <input class="input" type="email" placeholder="joao@empresa.com">
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div>
+            <label class="label">Cargo</label>
+            <input class="input" type="text" placeholder="Gerente de Vendas">
+        </div>
+
+        <div>
+            <label class="label">Telefone</label>
+            <input class="input" type="text" placeholder="(11) 99999-9999">
+        </div>
+    </div>
+
+    <label class="label">Biografia</label>
+    <textarea class="textarea" placeholder="Conte um pouco sobre você..."></textarea>
+
+</div>
+<div id="card-empresa" class="profile-card">
+    <h2 class="title">Informações da Empresa</h2>
+    <p class="subtitle">Configure os dados da sua empresa</p>
+
+    <div class="grid-2">
+        <div>
+            <label class="label">Nome da Empresa</label>
+            <input class="input" type="text" placeholder="Empresa XPTO Ltda">
+        </div>
+
+        <div>
+            <label class="label">CNPJ</label>
+            <input class="input" type="text" placeholder="00.000.000/0001-00">
+        </div>
+    </div>
+
+    <label class="label">Endereço</label>
+    <input class="input" type="text" placeholder="Rua Exemplo, 123">
+
+    <label class="label">Descrição</label>
+    <textarea class="textarea" placeholder="Descrição da empresa..."></textarea>
+</div>
+<div id="card-seguranca" class="profile-card">
+    <h2 class="title">Segurança</h2>
+    <p class="subtitle">Gerencie a segurança da sua conta</p>
+
+    <label class="label">Senha Atual</label>
+    <input class="input" type="password">
+
+    <label class="label">Nova Senha</label>
+    <input class="input" type="password">
+
+    <label class="label">Confirmar Senha</label>
+    <input class="input" type="password">
+
+    <button class="btn-upload">Alterar Senha</button>
+</div>
+
+    </main>
+</body>
+</html>

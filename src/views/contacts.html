@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UseTrack</title>
+
+    <link rel="stylesheet" href="../styles/partials/contacts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/assets/img/ico/resized%20(2).png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/partials/SideNavBar.css">
+    <script src="../components/sidebar-component.js"></script>
+</head>
+<body>
+    <side-bar></side-bar>
+
+    <header class="navbar">
+        <input type="text" class="search-bar" placeholder="Pesquisar...">
+        <img src="../assets/notification-icon.png" alt="Notificações" class="notification-icon">
+        <img src="../assets/user-avatar.png" alt="Avatar" class="user-avatar">
+    </header>
+    <main class="main">
+
+        <div class="header-row">
+            <div class="Title"><h3>Contatos</h3><br>Gerencie seus contatos e leads</div>
+            <button class="btn-primary" onclick="location.href='add-contact.html'">
+                <i>+</i>Novo Contato 
+            </button>
+        </div>
+        <div class="container_Search">
+          <div class="input_Wrapper">
+            <i class="fa fa-search icon_Search"></i>
+              <input type="text" class="input_Search" placeholder="Buscar Contatos">
+           </div>
+      </div>
+       <div class="contacts-container">
+    <h2 class="contacts-title">Todos os Contatos <span>(192)</span></h2>
+
+    <div class="contact-card">
+        <div class="avatar">JS</div>
+        <div class="info">
+            <h3>João Silva</h3>
+            <div class="details">
+                <div><i class="fa fa-envelope"></i> joao@techcorp.com</div>
+                <div><i class="fa fa-phone"></i> (11) 99999-9999</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <div class="avatar">PH</div>
+        <div class="info">
+            <h3>Pedro Henrique</h3>
+            <div class="details">
+                <div><i class="fa fa-envelope"></i> pedro@mail.com</div>
+                <div><i class="fa fa-phone"></i> (11) 99999-9999</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <div class="avatar">FR</div>
+        <div class="info">
+            <h3>Fernanda Ribeiro</h3>
+            <div class="details">
+                <div><i class="fa fa-envelope"></i> fernanda@fitness.com</div>
+                <div><i class="fa fa-phone"></i> (11) 99999-9999</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </main>
+
+</body>
+</html>
