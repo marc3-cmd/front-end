@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UseTrack</title>
     <link rel="stylesheet" href="../styles/partials/SideNavBar.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/partials/report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
     <script src="../components/sidebar-component.js"></script>
+    <script defer src="../components/NavReports.js"></script>
 </head>
 <body>
     <side-bar></side-bar>
@@ -15,6 +17,72 @@
         <img src="../assets/notification-icon.png" alt="Notificações" class="notification-icon">
         <img src="../assets/user-avatar.png" alt="Avatar" class="user-avatar">
     </header>
-    <main class="main"></main>
+    <main class="main">
+        <div class="header-row">
+        <div class="Title">    
+        <h3>Configurações</h3><br>Gerencie suas preferências e configurações do sistema
+        </div>
+            <button class="btn">Exportar</button>
+            <button class="btn-secondary">Filtro</button>
+            <button class="btn-third">Ùltimo </button>
+        </div>
+                <div class="box">
+                <div class="cardSales">
+                        <div class="card_title">
+                            Vendas do Mês
+                        </div>
+                        <div class="card_stats">
+                            R$ 45.000,00
+                        </div>
+                    </div>
+                    
+                    <div class="cardContacts">
+                        <div class="card_title">
+                            Novos Contatos
+                        </div>
+                        <div class="card_stats">
+                            342
+                        </div>
+                    </div>
+                    
+                    <div class="cardConversion">
+                        <div class="card_title">
+                            Taxa de Conversão
+                        </div>
+                        <div class="card_stats">
+                            23.8%
+                        </div>
+                    </div>
+                    
+                    <div class="cardCompleted">
+                        <div class="card_title">
+                        Tarefas Concluídas
+                        </div>
+                        <div class="card_stats">
+                            89
+                        </div>
+                    </div>
+                </div> 
+        <div class="nav">
+            <button class="tab active" data-tab="vendas">Vendas</button>
+            <button class="tab" data-tab="contatos">Contatos</button>
+            <button class="tab" data-tab="tarefas">Tarefas</button>
+            <button class="tab" data-tab="performance">Performance</button>
+        </div>
+        <div class="conteudo">
+            <div id="vendas" class="tab-content active"></div>
+            <div id="contatos" class="tab-content"></div>
+            <div id="tarefas" class="tab-content"></div>
+            <div id="performance" class="tab-content"></div>
+        </div>
+
+    <div id ="card-vendas" class="profile-card active">
+    <h2 class="title">Vendas por Mês</h2>
+    <p class="subtitle">Evolução das vendas nos últimos 6 meses</p>
+    
+    </div>
+
+
+    </main>
 </body>
 </html>

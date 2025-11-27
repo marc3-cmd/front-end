@@ -21,3 +21,32 @@
     height: 86px;
     
 }
+.btn-secondary, .btn-third {
+    background-color: #E5E5E5;       /* cinza claro padrão */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;                    /* sem borda inicial */
+    padding:10px 20px;               /* menor */
+    border-radius: 8px;
+    font-size: 16px;                 /* menor */
+    font-weight: 500;
+    color: #555;                     /* texto cinza */
+    cursor: pointer;
+    gap: 6px;
+    transition: all 0.2s ease;
+    width: fit-content;
+    height: fit-content;
+}
+
+.btn-secondary:hover,
+.btn-third:hover {
+    background-color: #8B5CF6;      
+    color: #fff;                  
+}
+
+.btn-secondary:active,
+.btn-third:active {
+    background-color: #6B3FCF;   
+    color: #fff;
+}
