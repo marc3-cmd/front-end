@@ -34,48 +34,51 @@ class ContactsManager {
     }
 
     initializeElements() {
-        // Modal elements
-        this.modal = document.getElementById('contactModal');
-        this.addContactBtn = document.getElementById('addContactBtn');
-        this.closeBtn = this.modal?.querySelector('.close');
-        this.cancelBtn = document.getElementById('cancelContactBtn');
-        this.saveBtn = document.getElementById('saveContactBtn');
-        this.contactForm = document.getElementById('contactForm');
-        
-        // Form elements
-        this.contactName = document.getElementById('contactName');
-        this.contactEmail = document.getElementById('contactEmail');
-        this.contactPhone = document.getElementById('contactPhone');
-        this.contactCompany = document.getElementById('contactCompany');
-        
-        // Contacts container
-        this.contactsContainer = document.querySelector('.contacts_container');
-        this.contactsTitle = document.querySelector('.contacts_title span');
-        
-        // Search elements
-        this.searchInput = document.querySelector('.input_Search');
-    }
+    this.modal = document.getElementById('contactModal');
+    this.addContactBtn = document.getElementById('addContactBtn');
+    this.closeBtn = this.modal?.querySelector('.close');
+    this.cancelBtn = document.getElementById('cancelContactBtn');
+    this.saveBtn = document.getElementById('saveContactBtn');
+    this.contactForm = document.getElementById('contactForm');
+    
+    this.contactName = document.getElementById('contactName');
+    this.contactEmail = document.getElementById('contactEmail');
+    this.contactPhone = document.getElementById('contactPhone');
+    this.contactCompany = document.getElementById('contactCompany');
+    
+    this.contactsContainer = document.querySelector('.contacts_container');
+    this.contactsTitle = document.querySelector('.contacts_title span');
+    
+    this.searchInput = document.querySelector('.input_search');
+}
 
     attachEventListeners() {
-        // Modal controls
-        this.addContactBtn.addEventListener('click', () => this.openModal());
-        this.closeBtn?.addEventListener('click', () => this.closeModal());
-        this.cancelBtn?.addEventListener('click', () => this.closeModal());
-        this.saveBtn?.addEventListener('click', () => this.saveContact());
-        
-        // Form validation
-        this.contactName?.addEventListener('input', () => this.validateForm());
-        
-        // Search functionality
-        this.searchInput?.addEventListener('input', (e) => this.searchContacts(e.target.value));
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.closeModal();
-            }
-        });
-    }
+    this.addContactBtn.addEventListener('click', () => this.openModal());
+    this.closeBtn?.addEventListener('click', () => this.closeModal());
+    this.cancelBtn?.addEventListener('click', () => this.closeModal());
+    this.saveBtn?.addEventListener('click', () => this.saveContact());
+    
+    this.contactName?.addEventListener('input', () => this.validateForm());
+    
+    // CORREÇÃO: Event listener melhorado para a pesquisa
+    this.searchInput?.addEventListener('input', (e) => {
+        this.searchContacts(e.target.value);
+    });
+    
+    // CORREÇÃO: Adicionar evento de tecla Enter para limpar pesquisa
+    this.searchInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            e.target.value = '';
+            this.searchContacts('');
+        }
+    });
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === this.modal) {
+            this.closeModal();
+        }
+    });
+}
 
     openModal() {
         if (!this.modal) return;
@@ -253,31 +256,32 @@ class ContactsManager {
     }
 
     searchContacts(searchTerm) {
-        if (!searchTerm) {
-            this.renderContacts();
-            return;
-        }
-
-        const filteredContacts = this.contacts.filter(contact =>
-            contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            contact.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            contact.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            contact.phone.includes(searchTerm)
-        );
-
-        // Remove existing contacts
-        const existingContacts = this.contactsContainer.querySelectorAll('.contact_card');
-        existingContacts.forEach(contact => contact.remove());
-
-        // Render filtered contacts
-        filteredContacts.forEach(contact => {
-            const contactElement = this.createContactElement(contact);
-            this.contactsContainer.appendChild(contactElement);
-        });
-
-        // Update count for filtered results
-        this.contactsTitle.textContent = `(${filteredContacts.length})`;
+    if (!searchTerm) {
+        this.renderContacts();
+        this.updateContactsCount();
+        return;
     }
+
+    const filteredContacts = this.contacts.filter(contact =>
+        contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        contact.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        contact.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        contact.phone.includes(searchTerm)
+    );
+
+    // Remove existing contacts
+    const existingContacts = this.contactsContainer.querySelectorAll('.contact_card');
+    existingContacts.forEach(contact => contact.remove());
+
+    // Render filtered contacts
+    filteredContacts.forEach(contact => {
+        const contactElement = this.createContactElement(contact);
+        this.contactsContainer.appendChild(contactElement);
+    });
+
+    // Update count for filtered results
+    this.contactsTitle.textContent = `(${filteredContacts.length})`;
+}
 
     updateContactsCount() {
         if (this.contactsTitle) {
