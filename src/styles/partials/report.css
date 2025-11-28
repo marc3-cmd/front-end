@@ -6,21 +6,27 @@
   font-family: 'Poppins';
   
 }
-.main {
-  margin-left: 80px;
-  margin-top: 70px;         
-  padding: 30px;
-  
+
+body {
+    background-color: #e3e9f7;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 20px;
+    margin-left: 82px; /* largura do sidebar */
+    transition: margin-left 0.5s;
+    min-height: 100vh;
 }
 
 .header-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;            
-    width: 100%;
-    margin-bottom: 20px; 
-           
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;     
 }
+
 .btn {
     background-color: #6B00BD;
     color: #fff;
