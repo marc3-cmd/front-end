@@ -8,32 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
     <link rel="shortcut icon" href="/assets/img/ico/resized%20(2).png" type="image/x-icon">
     <script src="../components/sidebar-component.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <side-bar style="position: absolute;"></side-bar>
+    <side-bar></side-bar>
 
     <main class="main">
         <div class="reports_header">    
-                <h2>Relatórios</h2>
-                <h4>Analise o desempenho e métricas do seu negócio</h4>
-            </div>
-    
-            <div class="header_buttons">
-                <button class="filter_btn">
-                    <i class="fa-solid fa-filter"></i>
-                    Filtro
-                </button>
+            <h2>Relatórios</h2>
+            <h4>Analise o desempenho e métricas do seu negócio</h4>
+        </div>
 
-                <div class="combo_box">
-                    <select name="Período" id="period">
-                        <option value="Últimos 7 dias">Últimos 7 dias</option>
-                        <option value="Últimos 30 dias">Últimos 30 dias</option>
-                        <option value="Últimos 30 dias">Últimos 90 dias</option>
-                        <option value="Últimos 12 meses">Últimos 12 meses</option>
-                    </select>
-                </div>
-            
+        <div class="header_btn">
+            <div class="combo_box">
+                <select name="Período" id="period">
+                    <option value="Últimos 7 dias">Últimos 7 dias</option>
+                    <option value="Últimos 30 dias">Últimos 30 dias</option>
+                    <option value="Últimos 90 dias">Últimos 90 dias</option>
+                    <option value="Últimos 12 meses">Últimos 12 meses</option>
+                </select>
             </div>
+        </div>
 
         <div class="box">
             <div class="dashboard_card cardSales">
@@ -58,7 +53,7 @@
         </div>
 
         <div class="nav">
-            <button class="tab_active" data-tab="vendas">
+            <button class="tab active" data-tab="vendas">
                 <i class="fa-solid fa-chart-line"></i>
                 Vendas
             </button>
@@ -73,21 +68,24 @@
         </div>
 
         <div class="conteudo">
-            <div id="vendas" class="tab_content active">
-                <div class="profile_card active">
+            <div id="vendas" class="tab-content active">
+                <div class="profile_card">
                     <h2 class="title">Vendas por Mês</h2>
                     <p class="subtitle">Evolução das vendas nos últimos 6 meses</p>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
                 </div>
             </div>
-            
-            <div id="contatos" class="tab_content">
+
+            <div id="contatos" class="tab-content">
                 <div class="profile_card">
                     <h2 class="title">Relatório de Contatos</h2>
                     <p class="subtitle">Análise de novos contatos e conversões</p>
                 </div>
             </div>
-            
-            <div id="tarefas" class="tab_content">
+
+            <div id="tarefas" class="tab-content">
                 <div class="profile_card">
                     <h2 class="title">Relatório de Tarefas</h2>
                     <p class="subtitle">Desempenho e produtividade das tarefas</p>
@@ -96,6 +94,6 @@
         </div>
     </main>
 
-    <script src="../scripts/modal/reports-modal.js"></script>
+    <script src="../scripts/modules/reports.js"></script>
 </body>
 </html>
