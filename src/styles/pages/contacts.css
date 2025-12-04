@@ -1,356 +1,397 @@
-/* Reset básico */
+/* -------------------------------------------
+   ## Reset e Base
+   ------------------------------------------- */
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #dde6f7;
-  color: #222;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
+    background-color: #dde6f7;
+    color: #222;
+    /* 1. Alinha o conteúdo principal para a esquerda, deixando 80px à direita para a Sidebar */
+    margin-right: 80px; 
+    /* 2. Empurra o conteúdo para baixo, deixando 70px para o Navbar fixo no topo */
+    margin-top: 70px; 
 }
+
+body.sidebar-expanded {
+  margin-right: 250px; 
+}
+
+/* -------------------------------------------
+   ## Layout da Página (Container Principal)
+   ------------------------------------------- */
 
 .main {
-  width: 100%;
-  max-width: 900px;
+    width: 100%;
+    max-width: 900px;
+    /* Adiciona o padding que foi removido do body */
+    padding: 2rem; 
+    margin: 0 auto; /* Centraliza o conteúdo principal dentro da área útil */
 }
 
-/* Cabeçalho */
+/* -------------------------------------------
+   ## Cabeçalho e Botão (contact_header_container)
+   ------------------------------------------- */
+
 .contact_header_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .contacts_header h2 {
-  font-weight: 700;
-  font-size: 1.8rem;
-  margin-bottom: 0.3rem;
-  color: #222;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+    color: #222;
 }
 
 .contacts_header h4 {
-  font-weight: 400;
-  font-size: 1rem;
-  color: #555;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #555;
 }
 
 /* Botão Novo Contato */
 #addContactBtn {
-  background-color: #6c63ff;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 #addContactBtn:hover {
-  background-color: #534bd6;
+    background-color: #534bd6;
 }
 
 #addContactBtn i {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
-/* Campo de busca */
+/* -------------------------------------------
+   ## Campo de Busca
+   ------------------------------------------- */
+
 .container_search {
-  background: white;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
-  max-width: 100%;
+    background: white;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+    max-width: 100%;
 }
 
 .input_wrapper {
-  position: relative;
+    position: relative;
 }
 
 .icon_search {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #aaa;
-  font-size: 1rem;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1rem;
 }
 
 .input_search {
-  width: 100%;
-  padding: 0.6rem 0.6rem 0.6rem 2.5rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 1rem;
-  transition: border-color 0.3s ease;
+    width: 100%;
+    padding: 0.6rem 0.6rem 0.6rem 2.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    transition: border-color 0.3s ease;
 }
 
 .input_search:focus {
-  outline: none;
-  border-color: #6c63ff;
+    outline: none;
+    border-color: #6c63ff;
 }
 
-/* Lista de contatos */
+/* -------------------------------------------
+   ## Lista de Contatos
+   ------------------------------------------- */
+
 .contacts_container {
-  background: white;
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
-  margin-bottom: 2rem;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+    margin-bottom: 2rem;
 }
 
 #contacts_title {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #222;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #222;
 }
 
-/* Lista ul e li */
+/* Estrutura da Lista ul e li */
 #contactsList {
-  list-style: none;
+    list-style: none;
 }
 
 #contactsList li {
-  background: #f9f9fb;
-  padding: 0.8rem 1rem;
-  border-radius: 0.6rem;
-  margin-bottom: 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
-  transition: background-color 0.2s ease;
+    background: #f9f9fb;
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+    transition: background-color 0.2s ease;
 }
 
 #contactsList li:focus {
-  outline: 2px solid #6c63ff;
-  background-color: #e6e8ff;
+    outline: 2px solid #6c63ff;
+    background-color: #e6e8ff;
 }
 
+/* Detalhes do Contato na Lista */
 #contactsList li strong {
-  font-weight: 600;
-  flex: 1 1 30%;
-  color: #222;
+    font-weight: 600;
+    flex: 1 1 30%;
+    color: #222;
 }
 
-/* Dados do contato texto */
 #contactsList li span,
 #contactsList li strong {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Botões dentro da lista */
-#contactsList button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 0.3rem 0.7rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
-  font-size: 0.9rem;
-}
-
-#contactsList button.editBtn {
-  color: #6c63ff;
-}
-
-#contactsList button.editBtn:hover {
-  background-color: #e3e2ff;
-}
-
-#contactsList button.deleteBtn {
-  color: #ff5c5c;
-}
-
-#contactsList button.deleteBtn:hover {
-  background-color: #ffd6d6;
-}
-
+/* Estrutura flex para o item de contato mais detalhado (se usado) */
 .contact-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .contact-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .contact-avatar {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: #7C4DFF;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 18px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #7C4DFF;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .contact-text span {
-  display: block;
-  color: #555;
-  font-size: 14px;
+    display: block;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Botões de Ação na Lista */
+#contactsList button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+#contactsList button.editBtn {
+    color: #6c63ff;
+}
+
+#contactsList button.editBtn:hover {
+    background-color: #e3e2ff;
+}
+
+#contactsList button.deleteBtn {
+    color: #ff5c5c;
+}
+
+#contactsList button.deleteBtn:hover {
+    background-color: #ffd6d6;
 }
 
 
-/* Modal */
+/* -------------------------------------------
+   ## Modal (contact-Modal)
+   ------------------------------------------- */
+
 #contact-Modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(34, 34, 34, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  z-index: 1000;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(34, 34, 34, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 1000;
 }
 
 #contact-Modal[hidden] {
-  display: none;
+    display: none;
 }
 
 #modal_content {
-  background-color: white;
-  border-radius: 1rem;
-  width: 100%;
-  max-width: 360px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
-  position: relative;
+    background-color: white;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 360px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+    position: relative;
 }
 
 /* Botão fechar modal */
 #modal_content .close {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  font-size: 1.5rem;
-  color: #555;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-weight: 700;
-  transition: color 0.3s ease;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #555;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
 #modal_content .close:hover {
-  color: #6c63ff;
+    color: #6c63ff;
 }
 
 /* Título do modal */
 #modal_content h3 {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #222;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #222;
 }
 
 /* Form */
 .form_group {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .form_group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-  color: #444;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #444;
 }
 
 .form_group input {
-  padding: 0.5rem 0.7rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid #ccc;
-  transition: border-color 0.3s ease;
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid #ccc;
+    transition: border-color 0.3s ease;
 }
 
 .form_group input:focus {
-  border-color: #6c63ff;
-  outline: none;
+    border-color: #6c63ff;
+    outline: none;
 }
 
 /* Footer modal com botões */
 .modal_footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .modal_footer button {
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 /* Botão cancelar */
 #cancelContactBtn {
-  background-color: #ccc;
-  color: #333;
+    background-color: #ccc;
+    color: #333;
 }
 
 #cancelContactBtn:hover {
-  background-color: #b3b3b3;
+    background-color: #b3b3b3;
 }
 
 /* Botão salvar */
 #saveContactBtn {
-  background-color: #6c63ff;
-  color: white;
+    background-color: #6c63ff;
+    color: white;
 }
 
 #saveContactBtn:hover {
-  background-color: #534bd6;
+    background-color: #534bd6;
 }
 
-/* Tela pequena (responsivo) */
+/* -------------------------------------------
+   ## Responsividade (Mobile)
+   ------------------------------------------- */
+
 @media (max-width: 480px) {
-  #modal_content {
-    width: 95%;
-  }
+    /* Em mobile, geralmente a sidebar é removida ou colapsada, eliminamos a margem de 80px */
+    body,
+    body.sidebar-expanded {
+        margin-right: 0;
+        margin-top: 0;
+    }
+    
+    .main {
+        padding: 1rem; /* Reduz o padding para melhor uso do espaço em telas pequenas */
+    }
 
-  .contact_header_container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
+    #modal_content {
+        width: 95%;
+    }
 
-  #addContactBtn {
-    width: 100%;
-  }
+    .contact_header_container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    #addContactBtn {
+        width: 100%;
+    }
 }

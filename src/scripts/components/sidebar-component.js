@@ -11,6 +11,7 @@ class Sidebar extends HTMLElement {
     }
 
     render() {
+        // HREFs alterados para /src/pages/ para refletir a estrutura do projeto
         this.shadowRoot.innerHTML = `
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -22,7 +23,7 @@ class Sidebar extends HTMLElement {
                     box-sizing: border-box;
                     font-family: 'Poppins', sans-serif;
                 }
-
+                /* ... restante do CSS inalterado ... */
                 :host {
                     display: block;
                 }
@@ -182,7 +183,8 @@ class Sidebar extends HTMLElement {
                 #sidebar.open-sidebar #logout_btn {
                     justify-content: flex-start;
                 }
-
+                
+                /* Estilos do Modal de Logout */
                 .logout-modal {
                     display: none;
                     position: fixed;
@@ -306,10 +308,10 @@ class Sidebar extends HTMLElement {
                 }
             </style>
             
-            <nav id="sidebar">
+            <nav id="sidebar" class="open-sidebar">
                 <div id="sidebar_content">
                     <div id="user">
-                        <img src="/assets/img/resized.png" id="user_avatar" alt="Avatar">
+                        <img src="../../public/assets/img/resized.png" id="user_avatar" alt="Avatar">
                         <div id="user_infos">
                             <span class="item-description">USETRACK</span>
                             <span class="item-description">CRM</span>
@@ -318,31 +320,31 @@ class Sidebar extends HTMLElement {
 
                     <ul id="side_items">
                         <li class="side-item" data-page="home">
-                            <a href="../views/home.html">
+                            <a href="/src/pages/home.html">
                                 <i class="fa-solid fa-house"></i>
                                 <span class="item-description">Home</span>
                             </a>
                         </li>
                         <li class="side-item" data-page="contacts">
-                            <a href="../views/contacts.html">
+                            <a href="/src/pages/contacts.html">
                                 <i class="fa-solid fa-user-group"></i>
                                 <span class="item-description">Contatos</span>
                             </a>
                         </li>
                         <li class="side-item" data-page="tasks">
-                            <a href="../views/tasks.html">
+                            <a href="/src/pages/tasks.html">
                                 <i class="fa-solid fa-check-double"></i>
                                 <span class="item-description">Tarefas</span>
                             </a>
                         </li>
                         <li class="side-item" data-page="reports">
-                            <a href="../views/reports.html">
+                            <a href="/src/pages/reports.html">
                                 <i class="fa-solid fa-chart-line"></i>
                                 <span class="item-description">Relatórios</span>
                             </a>
                         </li>
                         <li class="side-item" data-page="settings">
-                            <a href="../views/settings.html">
+                            <a href="/src/pages/settings.html">
                                 <i class="fa-solid fa-gear"></i>
                                 <span class="item-description">Configurações</span>
                             </a>
@@ -382,10 +384,12 @@ class Sidebar extends HTMLElement {
             </div>
         `;
     }
-
+    
+    // ... (addEventListeners e outros métodos inalterados) ...
     addEventListeners() {
         this.shadowRoot.getElementById('open_btn').addEventListener('click', () => {
             this.shadowRoot.getElementById('sidebar').classList.toggle('open-sidebar');
+            document.body.classList.toggle('sidebar-expanded');
         });
 
         this.shadowRoot.querySelectorAll('.side-item').forEach(item => {
@@ -420,25 +424,28 @@ class Sidebar extends HTMLElement {
     }
 
     setActivePage() {
-        const currentPage = this.getCurrentPage();
-        const savedPage = localStorage.getItem('activeSidebarPage');
+        const currentPage = this.getCurrentPage(); 
+        const savedPage = localStorage.getItem('activeSidebarPage'); 
         const pageToActivate = savedPage || currentPage;
         
         this.setActiveItem(pageToActivate);
         
-        if (!savedPage) {
+        if (!savedPage || savedPage !== currentPage) { 
             this.saveActivePage(currentPage);
         }
     }
 
     getCurrentPage() {
-        const path = window.location.pathname;
+        // Lógica de detecção de página atual ajustada para 'pages'
+        const path = window.location.pathname.toLowerCase();
+        
         if (path.includes('home.html')) return 'home';
         if (path.includes('contacts.html')) return 'contacts';
         if (path.includes('tasks.html')) return 'tasks';
         if (path.includes('reports.html')) return 'reports';
         if (path.includes('settings.html')) return 'settings';
-        return 'home';
+        
+        return 'home'; 
     }
 
     setActiveItem(page) {
@@ -465,13 +472,16 @@ class Sidebar extends HTMLElement {
     }
 
     performLogout() {
-        alert('Logout realizado com sucesso!');
+        localStorage.removeItem('userToken');
+        localStorage.removeItem('userData');
+        localStorage.removeItem('authToken'); 
+        localStorage.removeItem('activeSidebarPage'); 
+
         this.hideLogoutModal();
-
-        //localStorage.removeItem('userToken');
-       // localStorage.removeItem('userData');
-
-        window.location.href = '../views/login.html';
+        alert('Logout realizado com sucesso!');
+        
+        // Redireciona para a tela de login, usando /src/pages/login.html
+        window.location.href = '/src/pages/login.html'; 
     }
 }
 
