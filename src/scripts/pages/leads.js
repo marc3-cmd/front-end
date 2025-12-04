@@ -1,4 +1,3 @@
-// 🚨 IMPORTANTE: Este módulo pressupõe a existência do fetchData para comunicação com a API
 import { fetchData } from "../middlewares/api.js";
 
 const BASE_URL = 'http://localhost:3000/api';
@@ -21,6 +20,7 @@ const deleteLeadBtn = document.getElementById('deleteLeadBtn');
 const stageSelect = document.getElementById('stageSelect');
 const followUpHistory = document.getElementById('followUpHistory');
 const followUpForm = document.getElementById('followUpForm');
+const followUpSubmitBtn = document.getElementById('followUpSubmitBtn');
 const tabs = document.querySelectorAll('.tab-link');
 
 let currentLeadId = null; // ID da lead sendo editada
@@ -103,32 +103,32 @@ const renderFollowUpHistory = (followUps) => {
     followUps.forEach(fup => {
         // Garante que a data é tratável ou usa um fallback
         const interactionDate = new Date(fup.date);
-        const nextActionDateObj = fup.nextActionDate ? new Date(fup.nextActionDate) : null;
-        
-        const formattedInteractionDate = interactionDate.getTime() ? interactionDate.toLocaleString() : 'Data Inválida';
-        const formattedNextActionDate = nextActionDateObj && nextActionDateObj.getTime() 
-            ? nextActionDateObj.toLocaleDateString() 
-            : 'N/A';
 
+       const formattedDate = interactionDate instanceof Date && !isNaN(interactionDate) 
+            ? interactionDate.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) 
+            : 'Data Inválida';
+
+        // Define o tipo e as cores baseadas no status
+        const isLog = fup.isCompleted === true;
+        const typeLabel = isLog ? 'Interação' : 'Próx. Ação';
+        const itemClass = isLog ? 'followup-log' : 'followup-schedule';
+        
         const item = document.createElement('div');
-        item.className = 'followup-item';
+        item.className = `followup-item ${itemClass}`;
         item.dataset.followUpId = fup.id;
+
+        // Ações de edição/exclusão apenas para agendamentos futuros (FUPs não completados)
+        const showActions = !fup.isCompleted;
 
         item.innerHTML = `
             <div class="followup-header">
-                <strong>Interação: ${formattedInteractionDate}</strong>
+                <strong>${typeLabel}: ${formattedDate}</strong>
                 <div class="followup-actions">
-                    <button class="edit-fup-btn" data-id="${fup.id}">Editar</button>
+                    ${showActions ? `<button class="edit-fup-btn" data-id="${fup.id}">Editar</button>` : ''}
                     <button class="delete-fup-btn" data-id="${fup.id}">Excluir</button>
                 </div>
             </div>
             <p><strong>Notas:</strong> ${fup.notes}</p>
-            ${fup.nextActionNotes ? `
-                <div class="next-action-details">
-                    <p><strong>Próx. Ação Agendada:</strong> ${formattedNextActionDate}</p>
-                    <p><strong>Detalhes:</strong> ${fup.nextActionNotes}</p>
-                </div>
-            ` : ''}
         `;
         followUpHistory.appendChild(item);
     });
@@ -184,8 +184,8 @@ const renderLeadCard = (lead) => {
         }
     });
 
-    const nextActionDate = lead.nextActionDate ? new Date(lead.nextActionDate).toLocaleDateString() : 'N/A';
-    const clientName = lead.client.name || '[Cliente Não Atribuído]';
+    const nextActionDate = lead.nextFollowUpDate ? new Date(lead.nextFollowUpDate).toLocaleDateString('pt-BR') : 'N/A';
+    const clientName = lead.client?.name || '[Cliente Não Atribuído]';
 
     card.innerHTML = `
         <h4>${lead.title}</h4>
@@ -307,8 +307,8 @@ const fetchLeads = async () => {
 
 const fetchFollowUpData = async ( followUpId ) => {
     try {
-        const fup = await fetchData(`${BASE_URL}/followups/{${followUpId}}`, "GET");
-        return fup;
+        const response = await fetchData(`${BASE_URL}/followups/${followUpId}`, "GET"); 
+        return response.data;
     }catch(error) {
         alert(`Falha ao carregar dados do Follow-up: ${error.message}`);
         console.error("Erro ao carregar Follow-up:", error);
@@ -336,6 +336,10 @@ const deleteFollowUp = async (folloUpId) => {
 const resetFolloUpForm = () => {
     followUpForm.reset();
     currentFollowUpId = null;
+
+    if(followUpSubmitBtn) {
+        followUpSubmitBtn.textContent = 'Registrar Interação';
+    }
     document.getElementById('followUpSubmitBtn').textContent = 'Registrar Interação';
 }
 
@@ -346,21 +350,23 @@ const editFollowUp = async (followUpId) => {
     
     // 1. Armazena o ID e preenche o formulário
     currentFollowUpId = followUpId;
+
+    const cleanedNotes = fup.notes.replace('[PRÓXIMA AÇÃO] ', '').trim();
     
     // Notas da Interação
-    document.getElementById('interactionNotes').value = fup.notes; 
+    document.getElementById('interactionNotes').value = cleanedNotes;
+    
+    document.getElementById('nextActionNotes').value = cleanedNotes;
     
     // Próxima Ação (Formata para YYYY-MM-DDTHH:MM, necessário para input type="datetime-local")
-    if (fup.nextActionDate) {
+    if (fup.data) {
         // Cria um objeto Date e formata para o formato local sem segundos
-        const dateObj = new Date(fup.nextActionDate);
+        const dateObj = new Date(fup.data);
         const formattedDate = dateObj.toISOString().slice(0, 16);
         document.getElementById('nextActionDate').value = formattedDate;
     } else {
         document.getElementById('nextActionDate').value = '';
     }
-    
-    document.getElementById('nextActionNotes').value = fup.nextActionNotes || '';
     
     // 2. Ajusta a UI
     document.getElementById('followUpSubmitBtn').textContent = 'Salvar Edição'; 
@@ -448,14 +454,18 @@ const loadLeadData = async (leadId) => {
     try {
         const lead = await fetchData(`${BASE_URL}/leads/${leadId}`, "GET");
 
-        const clientEmail = (lead.client && lead.client.email) ? lead.client.email : '';
+        const clientEmail = lead.client?.email || '';
 
         document.getElementById('leadTitle').value = lead.title;
         document.getElementById('clientEmailInput').value =     clientEmail;
         document.getElementById('leadValue').value = lead.value;
         document.getElementById('stageSelect').value = lead.stageId;
         modalTitle.textContent = `Editar Lead: ${lead.title}`;
+
         deleteLeadBtn.hidden = false;
+
+        resetFolloUpForm();
+
         loadFollowUpHistory(leadId);
     } catch (error) {
         console.error("Erro ao carregar dados da lead:", error);
@@ -518,27 +528,46 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     followUpForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        const nextActionDateValue = document.getElementById('nextActionDate').value;
         
         const isEditing = currentFollowUpId !== null;
         const method = isEditing ? "PUT" : "POST";
 
-        const url = isEditing ? `${BASE_URL}/followups/${currentFollowUpId}`: `${BASE_URL}/leads/${currentFollowUpId}/followups`;
+        const url = isEditing 
+        ? `${BASE_URL}/followups/${currentFollowUpId}` 
+        : `${BASE_URL}/leads/${currentLeadId}/followups`;
 
-        const followUpData = {
-            leadId: currentLeadId,
-            interactionNotes: document.getElementById('interactionNotes').value,
-            nextActionDate: document.getElementById('nextActionDate').value,
-            nextActionNotes: document.getElementById('nextActionNotes').value
-        };
+        let payload;
+
+        // Validação básica para o POST
+        if (!isEditing && (!document.getElementById('interactionNotes').value || !nextActionDateValue)) {
+            alert("Preencha as notas de interação e a data para agendamento.");
+            return;
+        }
+
+        if(isEditing) {
+            payload = { 
+                notes: `[PRÓXIMA AÇÃO] ${document.getElementById('nextActionNotes').value || document.getElementById('interactionNotes').value}`,
+
+                data: nextActionDateValue,
+            }
+        }else {
+            payload = {
+                interactionNotes: document.getElementById('interactionNotes').value, 
+                nextActionDate: nextActionDateValue,
+                nextActionNotes: document.getElementById('nextActionNotes').value,
+            }
+        }
 
         try {
-            await fetchData(url, method, followUpData);
+            await fetchData(url, method, payload);
             
             loadFollowUpHistory(currentLeadId);
             await fetchLeads();
             alert(`Follow-up ${isEditing ? 'atualizado' : 'registrado'} com sucesso!`);
 
-            followUpForm.reset();
+            resetFolloUpForm()
 
             closeLeadModal();
         } catch (error) {
