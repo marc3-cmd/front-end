@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | UseTrack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../styles/partials/home.css">
-    <script src="../components/sidebar-component.js"></script>
+    <link rel="stylesheet" href="../styles/pages/home.css">
 </head>
 <body>
     <side-bar
@@ -18,7 +17,7 @@
         <div id="welcome">
             <h2>Bem-Vindo ao UseTrack!</h2>
             <h4>Facilidade e organização em primeiro lugar.</h4>
-            <img src="/assets/img/logo-in-white.png" alt="logo-in-white" id="logo-in-white">
+            <img src="../../public/assets/img/logo-in-white.png" alt="logo-in-white" id="logo-in-white">
         </div>
 
         <!-- Cards -->
@@ -28,7 +27,7 @@
                     Contatos Ativos
                 </div>
                 <div class="card_stats">
-                    32
+                    0
                 </div>
                 <div class="card_icon">
                     <i class="fa-solid fa-address-book"></i>
@@ -40,7 +39,7 @@
                     Tarefas Pendentes
                 </div>
                 <div class="card_stats">
-                    5
+                    0
                 </div>
                 <div class="card_icon">
                     <i class="fa-solid fa-list-check"></i>
@@ -52,22 +51,10 @@
                     Novos Leads
                 </div>
                 <div class="card_stats">
-                    12
+                    0
                 </div>
                 <div class="card_icon">
                     <i class="fa-solid fa-chart-simple"></i>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card_title">
-                    Reuniões Hoje
-                </div>
-                <div class="card_stats">
-                    2
-                </div>
-                <div class="card_icon">
-                    <i class="fa-solid fa-calendar-days"></i>
                 </div>
             </div>
         </div>
@@ -107,6 +94,7 @@
         </div>
     </div>
 
-    <script src="../scripts/modal/reminder.js"></script>
+    <script src="../scripts/pages/reminder.js"></script>
+    <script src="../scripts/middlewares/protectAPI.js"></script>
 </body>
 </html>

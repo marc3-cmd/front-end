@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../styles/partials/register.css">
+    <link rel="stylesheet" href="../styles/pages/register.css">
     <link rel="shortcut icon" href="/assets/img/ico/resized (2).png" type="image/x-icon">
 
     <title>UseTrack | Criar conta</title>
@@ -15,12 +15,12 @@
             <h1 id="form_title">
                 Criar conta
             </h1>
-            <div id="title">
-                <h3>USETRACK</H3>
-            </div>
+            <h3 id="title">
+                USETRACK
+            </h3>
         </div>
 
-        <form action="" id="form">
+        <form id="register-form">
             <div id="input_container">
                 <div class="input-box">
                     <label 
@@ -33,7 +33,7 @@
                         <input 
                             type="text"
                             name="name"
-                            id="name"
+                            id="nomeRegister"
                             class="form-control"
                             placeholder="Nome"
                         >
@@ -62,23 +62,6 @@
 
                 <div class="input-box">
                     <label 
-                        for="birthdate" 
-                        class="form-label"
-                    >
-                        Nascimento
-                    </label>
-                    <div class="input-field">
-                        <input 
-                            type="date"
-                            name="birthdate"
-                            id="birthdate"
-                            class="form-control"
-                        >
-                    </div>
-                </div>
-
-                <div class="input-box">
-                    <label 
                         for="email" 
                         class="form-label"
                     >
@@ -88,7 +71,7 @@
                         <input 
                             type="email"
                             name="email"
-                            id="email"
+                            id="emailRegister"
                             class="form-control"
                             placeholder="exemplo@email.com"
                         >
@@ -107,26 +90,7 @@
                         <input 
                             type="password"
                             name="password"
-                            id="password"
-                            class="form-control"
-                            placeholder="*******"
-                        >
-                        <i class="fa-regular fa-eye-slash password-icon"></i>
-                    </div>
-                </div>
-
-                <div class="input-box">
-                    <label 
-                        for="confirm_password" 
-                        class="form-label"
-                    >
-                        Confirmar senha
-                    </label>
-                    <div class="input-field">
-                        <input 
-                            type="password"
-                            name="confirm_password"
-                            id="confirm_password"
+                            id="passwordRegister"
                             class="form-control"
                             placeholder="*******"
                         >
@@ -198,14 +162,12 @@
                 Criar conta
             </button>
 
-           <a href="./login.html">
-            <button type="button" class="btn-secondary">
+           <a href="./login.html" class="btn-secondary">
                 Já possui conta?
-            </button>
             </a>
         </form>
     </main>
 
-    <script src="../scripts/modules/register.js"></script>
+    <script src="../scripts/pages/register.js"></script>
 </body>
 </html>

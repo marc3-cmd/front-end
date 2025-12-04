@@ -3,8 +3,10 @@
 * {
     margin: 0;
     padding: 0;
+    border: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    outline: none;
 }
 
 body {
@@ -20,7 +22,6 @@ body {
     display: block;
     align-items: center;
     justify-content: center;
-    border: none;
     padding: 8px 12px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -41,21 +42,15 @@ body {
 }
 
 .signup-link {
-    background-color: transparent;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #8B5CF6;
+    text-decoration: none;
+    display: block;
     padding: 8px 12px;
-    margin-top: 10px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    color: #8B5CF6;
-    cursor: pointer;
-    gap: 8px;
-    height: fit-content;
-    transition: all 0.3s ease;
-    width: 100%;
+    border: 2px solid #6366f1;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 100%;
+    color: #6366f1;
+    transition: background-color 0.3s ease;
 }
 
 .signup-link:hover {
@@ -109,34 +104,26 @@ body {
     display: flex;
     gap: 24px;
     position: relative;
+    
 }
 
-.input-container input {
+.input-container {
   display: flex;
+  justify-content: space-between;
   background-color: #fff;
   padding: 1rem;
-  padding-right: 3rem;
   margin-bottom: 20px;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  width: 300px;
+  width: 100%;
+  min-width: 300px;
   border-radius: 8px;
-  border: none;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);    
-}
-
-.input-field {
-    display: flex;
-    align-items: center;
-    background-color: #ffff;
-    border-radius: 8px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .form-control {
     padding: 10px;
     width: 100%;
-    border: none;
     border-radius: 8px;
 }
 

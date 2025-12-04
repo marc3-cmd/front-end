@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/pages/login.css">
+    <title>Faça Login! | UseTrack</title>
+</head>
+<body>
+    <main id="form_container">
+        <div id="form_header">
+            <h1 id="form_title">Entrar</h1>
+            <h3 id="title">USETRACK</h3>
+        </div>
+
+        <form id="login-form" class="form">
+            <!-- Email Field -->
+            <div class="input-container">
+                <input type="email" placeholder="E-mail" id="loginEmail">
+            </div>
+
+            <div class="input-container">
+                <input type="password" name="Senha" placeholder="Senha" id="passwordEmail">
+                <i class="fa-regular fa-eye-slash password-icon" id="togglePassword"></i>
+            </div>
+
+            <button type="submit" class="submit">Entrar</button>
+
+            <a href="./register.html" class="signup-link">Não tem uma conta?</a>
+        </form>
+    </main>
+
+    <script  src="../scripts/pages/login.js"></script>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('passwordEmail');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>
