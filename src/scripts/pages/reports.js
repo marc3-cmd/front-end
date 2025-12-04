@@ -1,6 +1,6 @@
 import { fetchData } from "../middlewares/api.js"; // Importa o middleware
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://usetrack-backend-production.up.railway.app/api';
 let salesChart = null;
 let contactsChart = null;
 

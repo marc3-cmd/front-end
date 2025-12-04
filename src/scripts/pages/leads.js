@@ -1,6 +1,6 @@
 import { fetchData } from "../middlewares/api.js";
 
-const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = 'https://usetrack-backend-production.up.railway.app/api';
 let leadsDoVendedor = []; // Estado global das Leads
 let availableStages = []; // Estágios carregados (Prospecção, Proposta, etc.)
 let availableClients = [];

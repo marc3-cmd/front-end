@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://usetrack-backend-production.up.railway.app';
 
 const form = document.getElementById("register-form");
 const nomeInput = document.getElementById("nomeRegister");

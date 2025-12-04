@@ -1,6 +1,6 @@
 import { fetchData } from "../middlewares/api.js";
 
-const API_BASE = 'http://localhost:3000/api/clientes';
+const API_BASE = 'https://usetrack-backend-production.up.railway.app/api/clientes';
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Contacts script carregado com sucesso")

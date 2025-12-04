@@ -1,6 +1,6 @@
 import { fetchData } from "../middlewares/api.js";
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://usetrack-backend-production.up.railway.app";
 
 // =====================================================================
 // 1. Seletores (versão com IDs — 100% confiável)

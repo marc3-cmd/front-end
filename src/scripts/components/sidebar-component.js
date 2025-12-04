@@ -337,6 +337,12 @@ class Sidebar extends HTMLElement {
                                 <span class="item-description">Tarefas</span>
                             </a>
                         </li>
+                        <li class="side-item" data-page="leads">
+                            <a href="/src/pages/leads.html">
+                                <i class="fa-solid fa-magnet"></i>
+                                <span class="item-description">Leads</span>
+                            </a>
+                        </li>
                         <li class="side-item" data-page="reports">
                             <a href="/src/pages/reports.html">
                                 <i class="fa-solid fa-chart-line"></i>
