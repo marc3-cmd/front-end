@@ -4,26 +4,29 @@ let isRefreshing = false;
 let subscribers = []; // Fila de requisições que aguardam o novo token
 
 // Função utilitária para adicionar funções de callback à fila
-export function subscribeTokenRefresh(callback) {
+function subscribeTokenRefresh(callback) {
     subscribers.push(callback);
 };
 
-export function onRefreshed(token) {
-    subscribers.forEach(callback => {token});
+function onRefreshed(token) {
+    subscribers.forEach(callback => {
+        callback(token); // <--- A função callback PRECISA ser executada!
+    });
+    subscribers = []; 
 }
 
 // Função para obter o token de acesso (Access Token)
-export function getAccessToken() {
+function getAccessToken() {
     return localStorage.getItem("token");
 }
 
 // Função para obter o refresh token
-export function getRefreshToken() {
+function getRefreshToken() {
     return localStorage.getItem("refresh");
 }
 
 // Função para armazenar o token de acesso
-export function setAccessToken(token) {
+function setAccessToken(token) {
     localStorage.setItem("token", token);
 }
 
@@ -95,9 +98,10 @@ export async function fetchData(url, method = "GET", body = null) {
             try {
                 const newToken = await refreshAccessToken();
                 if (!newToken) {
-                    // Falha crítica, redireciona o usuário (E notifica os subscritores)
+                    
                     onRefreshed(null); // Notifica a fila com token nulo
                     console.warn("Falha ao renovar o token. Redirecionando para login...");
+
                     window.location.href = '../pages/login.html';
                     return;
                 }
