@@ -6,7 +6,7 @@
     <title>Relatórios | UseTrack</title>
     <link rel="stylesheet" href="../styles/partials/report.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
-    <link rel="shortcut icon" href="/assets/img/ico/resized%20(2).png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/img/resized.png" type="image/x-icon">
     <script src="../components/sidebar-component.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -71,7 +71,7 @@
             <div id="vendas" class="tab-content active">
                 <div class="profile_card">
                     <h2 class="title">Vendas por Mês</h2>
-                    <p class="subtitle">Evolução das vendas nos últimos 6 meses</p>
+                    <p class="subtitle">Evolução das vendas</p>
                     <div class="chart-container">
                         <canvas id="salesChart"></canvas>
                     </div>
@@ -79,16 +79,43 @@
             </div>
 
             <div id="contatos" class="tab-content">
-                <div class="profile_card">
-                    <h2 class="title">Relatório de Contatos</h2>
-                    <p class="subtitle">Análise de novos contatos e conversões</p>
-                </div>
-            </div>
+    <div class="profile_card">
+        <h2 class="title">Cadastros de Clientes</h2>
+        <p class="subtitle">Novos clientes cadastrados</p>
+        
+        <div class="chart-container">
+            <canvas id="contactsChart"></canvas>
+        </div>
+        
+        <div class="stats-summary" style="margin-top: 30px; text-align: center;">
+            <h3 style="color: #333; font-size: 1.2rem; margin-bottom: 10px;">
+                Total no período: <span id="totalClients" style="color: #8B5CF6; font-weight: bold;">326</span> clientes
+            </h3>
+        </div>
+    </div>
+</div>
 
             <div id="tarefas" class="tab-content">
                 <div class="profile_card">
                     <h2 class="title">Relatório de Tarefas</h2>
                     <p class="subtitle">Desempenho e produtividade das tarefas</p>
+
+                    <div class="productivity-card">
+            <div class="productivity-numbers">
+                <div class="number-item">
+                    <div class="number" id="concluidas-count">89</div>
+                    <div class="number-label">Tarefas Concluídas</div>
+                    </div>
+
+                    <div class="number-item">
+                    <div class="number" id="andamento-count">23</div>
+                    <div class="number-label">Em Andamento</div>
+                </div>
+                
+                <div class="number-item">
+                    <div class="number" id="atrasadas-count">7</div>
+                    <div class="number-label">Atrasadas</div>
+                </div>
                 </div>
             </div>
         </div>

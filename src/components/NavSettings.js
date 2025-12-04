@@ -1,31 +1,25 @@
-const tabs = document.querySelectorAll(".tab");
-const contents = document.querySelectorAll(".tab-content");
-const cards = document.querySelectorAll(".profile-card");
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
- 
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
- 
-       
-        tab.classList.add("active");
-        const target = document.getElementById(tab.dataset.tab);
-        target.classList.add("active");
-         tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
-        cards.forEach(cd => cd.classList.remove("active"));
- 
-        // ativa aba
-        tab.classList.add("active");
- 
-        const id = tab.dataset.tab;
- 
-        // ativa conteúdo principal
-        document.getElementById(id).classList.add("active");
- 
-        // ativa card correspondente
-        document.getElementById("card-" + id).classList.add("active");
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.settings_tabs .tab');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove classe active de todas as tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Remove classe active de todos os tab-panes
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            
+            // Adiciona classe active na tab clicada
+            tab.classList.add('active');
+            
+            // Ativa o tab-pane correspondente
+            const targetId = tab.getAttribute('data-tab');
+            const targetPane = document.getElementById(`tab-${targetId}`);
+            
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
     });
 });
- 
- 
