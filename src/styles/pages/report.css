@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+:root {
+    /* Paleta de Cores Primárias */
+    --primary-color: #8B5CF6; /* Roxo/Índigo principal */
+    --success-color: #10B981; /* Verde (para metas atingidas e sucesso) */
+    --warning-color: #F59E0B; /* Amarelo/Laranja (para andamento) */
+    --danger-color: #EF4444; /* Vermelho (para atraso) */
+    --text-dark: #374151;
+    --text-light: #F9FAFB;
+    --bg-light: #e3e9f7;
+    --bg-white: #fff;
+}
+
+body {
+    background-color: var(--bg-light);
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 82px; /* largura do sidebar */
+    transition: margin-left 0.5s;
+    min-height: 100vh;
+    color: var(--text-dark); /* Cor padrão do texto no main */
+}
+
+/* ------------------ CABEÇALHO ------------------ */
+
+.reports_header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.reports_header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.reports_header h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.85;
+    margin-top: 5px;
+}
+
+.header_btn{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.combo_box select {
+    background-color: var(--bg-white);
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    min-width: 180px;
+    color: var(--text-dark);
+}
+
+.combo_box select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+/* ------------------ CARDS DE MÉTRICAS ------------------ */
+
+.box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.dashboard_card {
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    position: relative;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text-light);
+}
+
+/* Definição de Cores dos Cards */
+.cardSales { background: var(--success-color); } 
+.cardContacts { background: #3B82F6; } /* Azul suave */
+.cardConversion { background: var(--warning-color); }
+.cardCompleted { background: var(--primary-color); } 
+
+.card_title {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85); /* Título mais sutil */
+    font-weight: 500;
+}
+
+.card_stats {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+.dashboard_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ------------------ NAVEGAÇÃO E CONTEÚDO ------------------ */
+
+.nav {
+    display: flex;
+    gap: 20px;
+    padding: 15px 20px 0;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 25px;
+}
+
+.tab {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 10px 0;
+    color: var(--text-dark);
+    transition: opacity 0.3s, color 0.3s;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab i {
+    font-size: 1.1em;
+}
+
+.tab:hover {
+    opacity: 1;
+}
+
+.tab.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 3px solid var(--primary-color); /* Indicador ativo */
+    color: var(--primary-color);
+}
+
+.conteudo {
+    background-color: var(--bg-white);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px 0;
+    font-size: 17px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.profile_card {
+    padding: 30px;
+}
+
+.profile_card .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.profile_card .subtitle {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 20px;
+}
+
+/* ------------------ GRÁFICOS E LOADERS ------------------ */
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    color: #9CA3AF;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ------------------ RELATÓRIO DE TAREFAS ------------------ */
+
+.productivity-card {
+    padding: 30px;
+    /* Remover margin-top aqui para evitar espaçamento duplo */
+}
+
+.productivity-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.number-item {
+    padding: 25px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.number-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.number {
+    font-size: 3.2rem; /* Aumenta um pouco */
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+/* Cores dos números das tarefas */
+.number-item:nth-child(1) .number {
+    color: var(--success-color); /* Concluídas: Verde */
+}
+
+.number-item:nth-child(2) .number {
+    color: var(--warning-color); /* Em Andamento: Amarelo/Laranja */
+}
+
+.number-item:nth-child(3) .number {
+    color: var(--danger-color); /* Atrasadas: Vermelho */
+}
+
+.number-label {
+    font-size: 1rem;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+
+/* ------------------ RESPONSIVIDADE ------------------ */
+
+@media (max-width: 992px) {
+    main {
+        margin-left: 0; /* Desativa a margem da sidebar em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        height: 350px;
+    }
+    
+    .box {
+        grid-template-columns: 1fr 1fr; /* 2 colunas */
+        padding: 0 15px;
+    }
+
+    .reports_header, .header_btn {
+        padding: 15px;
+    }
+
+    .nav {
+        padding: 10px 15px 0;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-container {
+        height: 300px;
+    }
+    
+    .box {
+        grid-template-columns: 1fr; /* 1 coluna */
+        gap: 15px;
+    }
+    
+    .productivity-numbers {
+        grid-template-columns: 1fr; /* 1 coluna nas tarefas */
+        gap: 15px;
+    }
+
+    .dashboard_card {
+        padding: 20px;
+    }
+
+    .card_stats {
+        font-size: 1.8rem;
+    }
+}

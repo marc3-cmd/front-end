@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contatos | UseTrack</title>
+
+    <link rel="stylesheet" href="../styles/pages/contacts.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous"
+    />
+    <script src="../scripts/components/sidebar-component.js"></script>
+</head>
+<body>
+    <side-bar style="position: absolute; top: 0;">
+    </side-bar>
+    <main class="main">
+        <div class="contact_header_container">
+            <div class="contacts_header">
+                <h2>Contatos</h2>
+                <h4>Gerencie seus contatos e leads</h4>
+            </div>
+
+            <button type="button" id="addContactBtn">
+                <i class="fa-solid fa-plus"></i>
+                Novo Contato
+            </button>
+        </div>
+
+        <div class="container_search">
+            <div class="input_wrapper">
+                <i class="fa fa-search icon_search"></i>
+                <input type="text" class="input_search" placeholder="Buscar Contatos" />
+            </div>
+        </div>
+
+        <div class="contacts_container" id="contacts">
+            <h2 id="contacts_title">
+                Todos os Contatos <span>(0)</span>
+            </h2>
+            <!-- Lista de contatos renderizada aqui -->
+            <ul id="contactsList" tabindex="0" aria-label="Lista de contatos"></ul>
+        </div>
+
+        <div
+            id="contact-Modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+            aria-describedby="modalDescription"
+            hidden
+        >
+            <div id="modal_content">
+                <button
+                    type="button"
+                    class="close"
+                    aria-label="Fechar modal"
+                >
+                    &times;
+                </button>
+                <h3 id="modalTitle">Cadastrar Novo Contato</h3>
+                <p id="modalDescription" class="sr-only">
+                    Formulário para adicionar ou editar um contato
+                </p>
+
+                <form id="contactForm">
+                    <div class="form_group">
+                        <label for="contactName">Nome do Contato *</label>
+                        <input
+                            type="text"
+                            id="contactName"
+                            name="contactName"
+                            placeholder="Digite o nome do contato"
+                            required
+                        />
+                    </div>
+
+                    <div class="form_group">
+                        <label for="contactEmail">E-mail</label>
+                        <input
+                            type="email"
+                            id="contactEmail"
+                            name="contactEmail"
+                            placeholder="Digite o e-mail do contato"
+                        />
+                    </div>
+
+                    <div class="form_group">
+                        <label for="contactPhone">Telefone</label>
+                        <input
+                            type="tel"
+                            id="contactPhone"
+                            name="contactPhone"
+                            placeholder="Digite o telefone do contato"
+                        />
+                    </div>
+
+                    <div class="form_group" id="sendData">
+                        <label for="contactCompany">Empresa</label>
+                        <input
+                            type="text"
+                            id="contactCompany"
+                            name="contactCompany"
+                            placeholder="Digite a empresa do contato"
+                        />
+                    </div>
+
+                    <div class="modal_footer">
+                        <button type="button" id="cancelContactBtn">
+                            Cancelar
+                        </button>
+                        <button type="submit" id="saveContactBtn">
+                            Salvar Contato
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="../scripts/pages/contacts.js"></script>
+    <script src="../scripts/middlewares/protectAPI.js"></script>
+</body>
+</html>

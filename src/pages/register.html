@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/pages/register.css">
+    <link rel="shortcut icon" href="/assets/img/ico/resized (2).png" type="image/x-icon">
+
+    <title>UseTrack | Criar conta</title>
+</head>
+<body>
+    <main id="form_container">
+        <div id="form_header">
+            <h1 id="form_title">
+                Criar conta
+            </h1>
+            <h3 id="title">
+                USETRACK
+            </h3>
+        </div>
+
+        <form id="register-form">
+            <div id="input_container">
+                <div class="input-box">
+                    <label 
+                        for="name" 
+                        class="form-label"
+                    >
+                        Primeiro nome
+                    </label>
+                    <div class="input-field">
+                        <input 
+                            type="text"
+                            name="name"
+                            id="nomeRegister"
+                            class="form-control"
+                            placeholder="Nome"
+                        >
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label 
+                        for="last_name" 
+                        class="form-label"
+                    >
+                        Último nome
+                    </label>
+                    <div class="input-field">
+                        <input 
+                            type="text"
+                            name="last_name"
+                            id="last_name"
+                            class="form-control"
+                            placeholder="Sobrenome"
+                        >
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label 
+                        for="email" 
+                        class="form-label"
+                    >
+                        E-mail
+                    </label>
+                    <div class="input-field">
+                        <input 
+                            type="email"
+                            name="email"
+                            id="emailRegister"
+                            class="form-control"
+                            placeholder="exemplo@email.com"
+                        >
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label 
+                        for="password" 
+                        class="form-label"
+                    >
+                        Senha
+                    </label>
+                    <div class="input-field">
+                        <input 
+                            type="password"
+                            name="password"
+                            id="passwordRegister"
+                            class="form-control"
+                            placeholder="*******"
+                        >
+                        <i class="fa-regular fa-eye-slash password-icon" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <div class="radio-container">
+                    <label class="form-label">
+                        Gênero
+                    </label>
+
+                    <div id="gender_inputs">
+                        <div class="radio-box">
+                            <input 
+                                type="radio"
+                                name="gender"
+                                id="female"
+                                class="form-control"
+                                value="female"
+                            >
+                            <label 
+                                for="female" 
+                                class="form-label"
+                            >
+                                Feminino
+                            </label>
+                        </div>
+
+                        <div class="radio-box">
+                            <input 
+                                type="radio"
+                                name="gender"
+                                id="male"
+                                class="form-control"
+                                value="male"
+                            >
+                            <label 
+                                for="male" 
+                                class="form-label"
+                            >
+                                Masculino
+                            </label>
+                        </div>
+
+                        <div class="radio-box">
+                            <input 
+                                type="radio"
+                                name="gender"
+                                id="other"
+                                class="form-control"
+                                value="other"
+                            >
+                            <label 
+                                for="other" 
+                                class="form-label"
+                            >
+                                Outro
+                            </label>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="buttom-container">
+                <button type="submit" class="btn-default">
+                    <i class="fa-solid fa-check"></i>
+                    Criar conta
+                </button>
+                
+                           <a href="./login.html" class="btn-secondary">
+                    Já possui conta?
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <script src="../scripts/pages/register.js"></script>
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('passwordRegister');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funil de Vendas | UseTrack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/pages/leads.css">
+    <script src="../scripts/components/sidebar-component.js"></script>
+</head>
+
+<body>
+    <side-bar style="position: absolute; left: 0; top: 0;"></side-bar>
+    <div class="kanban-wrapper">
+        <div class="kanban-header">
+            <div class="header-img">
+                <img src="../../public/assets/img/logo-in-white.png" alt="logo-in-white">
+            </div>
+            <button id="newLeadBtn" class="new-lead-btn">
+                + Nova Lead
+            </button>
+        </div>
+
+        <div class="kanban-container" id="kanbanContainer">
+
+            <div class="kanban-column" data-stage-id="1">
+                <h3 class="column-title">Meus Leads <span>(1)</span></h3>
+                <div class="column-header-progress">
+                    <div class="progress-bar" style="width: 10%;"></div>
+                </div>
+                <div class="lead-list" id="stage-1">
+                </div>
+            </div>
+
+            <div class="kanban-column" data-stage-id="2">
+                <h3 class="column-title">Qualificação <span>(20)</span></h3>
+                <div class="column-header-progress">
+                    <div class="progress-bar" style="width: 30%;"></div>
+                </div>
+                <div class="lead-list" id="stage-2">
+                </div>
+            </div>
+
+            <div class="kanban-column" data-stage-id="3">
+                <h3 class="column-title">Proposta <span>(20)</span></h3>
+                <div class="column-header-progress">
+                    <div class="progress-bar" style="width: 60%;"></div>
+                </div>
+                <div class="lead-list" id="stage-3">
+                </div>
+            </div>
+
+            <div class="kanban-column" data-stage-id="4">
+                <h3 class="column-title">Fechado <span>(6)</span></h3>
+                <div class="column-header-progress">
+                    <div class="progress-bar final-stage" style="width: 100%;"></div>
+                </div>
+                <div class="lead-list" id="stage-4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="leadCrudModal" class="lead-modal" hidden>
+        <div class="lead-modal-content">
+            <span class="close-btn" id="closeLeadModal">&times;</span>
+            <h2 id="modalTitle">Cadastrar Nova Lead</h2>
+
+            <div class="tabs">
+                <button class="tab-link active" data-tab="details">Detalhes</button>
+                <button class="tab-link" data-tab="followups">Follow-ups (Histórico)</button>
+            </div>
+
+            <div id="details" class="tab-content active">
+                <form id="leadForm">
+                    <div class="form-section">
+                        <h3>Informações Principais</h3>
+                        <div class="form-group">
+                            <label for="leadTitle">Título da Lead *</label>
+                            <input type="text" id="leadTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmailInput">E-mail do Cliente *</label>
+                            <input type="email" id="clientEmailInput" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Detalhes do Negócio</h3>
+                        <div class="form-group">
+                            <label for="leadValue">Valor (R$)</label>
+                            <input type="number" id="leadValue" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="stageSelect">Estágio Atual</label>
+                            <select id="stageSelect" required></select>
+                        </div>
+                    </div>
+
+                    <p id="leadModalMessage" class="message"></p>
+
+                    <div class="modal-footer">
+                        <button type="button" id="deleteLeadBtn" class="delete-btn">Excluir Lead</button>
+                        <button type="submit" id="saveLeadBtn">Salvar Lead</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="followups" class="tab-content">
+                <div class="followup-history" id="followUpHistory"></div>
+
+                <div class="new-followup-form">
+                    <h4>Agendar Próxima Interação</h4>
+                    <form id="followUpForm">
+                        <div class="form-group">
+                            <label for="interactionNotes">Notas da Interação Recente (Opcional)</label>
+                            <textarea id="interactionNotes"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="nextActionDate">Próxima Ação Agendada *</label>
+                            <input type="datetime-local" id="nextActionDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nextActionNotes">O que será feito na próxima vez?</label>
+                            <textarea id="nextActionNotes" required></textarea>
+                        </div>
+                        <button type="submit" id="followUpSubmitBtn">Registrar e Agendar</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/pages/leads.js"></script>
+    <script src="../scripts/middlewares/protectAPI.js"></script>
+</body>
+
+</html>

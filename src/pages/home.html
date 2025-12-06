@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | UseTrack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles/pages/home.css">
+    <script src="../scripts/components/sidebar-component.js"></script>
+</head>
+<body>
+    <side-bar
+    style="position: absolute;">
+    </side-bar>
+
+    <main>
+        <!-- Seção de Boas-Vindas -->
+        <div id="welcome">
+            <h2>Bem-Vindo ao UseTrack!</h2>
+            <h4>Facilidade e organização em primeiro lugar.</h4>
+            <img src="../../public/assets/img/logo-in-white.png" alt="logo-in-white" id="logo-in-white">
+        </div>
+
+        <!-- Cards -->
+        <div class="boxes">
+            <div class="card">
+                <div class="card_title">
+                    Contatos Ativos
+                </div>
+                <div class="card_stats">
+                    0
+                </div>
+                <div class="card_icon">
+                    <i class="fa-solid fa-address-book"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card_title">
+                    Tarefas Pendentes
+                </div>
+                <div class="card_stats">
+                    0
+                </div>
+                <div class="card_icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card_title">
+                    Novos Leads
+                </div>
+                <div class="card_stats">
+                    0
+                </div>
+                <div class="card_icon">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lembretes -->
+        <div class="reminders">
+            <div class="reminder_header">
+                <i class="fa-solid fa-bell"></i>
+                <h2>
+                    Lembretes
+                </h2>
+            </div>
+
+            <div class="add_reminder">
+                <button id="addReminderBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    Adicionar
+                </button>
+            </div>
+
+        <!-- Modal -->
+    <div id="reminderModal" class="modal">
+        <div class="modal_content">
+            <div class="modal_header">
+                <h3>Adicionar Lembrete</h3>
+                <span class="close">&times;</span>
+            </div>
+            
+            <div class="modal_body">
+                <textarea id="newReminderText" placeholder="Digite seu lembrete aqui..." rows="4"></textarea>
+            </div>
+
+            <div class="modal_footer">
+                <button id="cancelReminderBtn">Cancelar</button>
+                <button id="saveReminderBtn">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/pages/home.js" type="module"></script>
+    <script src="../scripts/pages/reminder.js"></script>
+    <script src="../scripts/middlewares/protectAPI.js"></script>
+</body>
+</html>
