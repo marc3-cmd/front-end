@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const contactsList = document.getElementById('contactsList');
     const contactsTitle = document.getElementById('contacts_title').querySelector('span');
+    const searchInput = document.querySelector('.input_search');
 
     let editId = null;
 
@@ -82,9 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Buscar contatos
-    const fetchContacts = async () => {
+    const fetchContacts = async (searchTerm = '') => {
         try {
-            const data = await fetchData(API_BASE, "GET");
+
+            let url = API_BASE;
+            if(searchTerm) {
+                url = `${API_BASE}?search=${encodeURIComponent(searchTerm)}`;
+            }
+            const data = await fetchData(url, "GET");
             renderContacts(data);
         } catch (error) {
             alert(error.message);
@@ -189,6 +195,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    let searchTimeout;
+    const handleSearch = () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            const searchTerm = searchInput.value.trim();
+            fetchContacts(searchTerm);
+        }, 300)
+    }
+
     // Eventos
     addContactBtn.addEventListener('click', openModal);
     closeModalBtn.addEventListener('click', closeModal);
@@ -197,6 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal();
     });
     contactForm.addEventListener('submit', saveContact);
+
+    searchInput.addEventListener('input', handleSearch);
 
     contactsList.addEventListener('click', (e) => {
         const li = e.target.closest('li');

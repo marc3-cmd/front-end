@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/pages/tasks.css">
     <link rel="shortcut icon" href="/assets/img/ico/resized%20(2).png" type="image/x-icon">
     <script src="../scripts/components/sidebar-component.js"></script>
     <title>Tarefas | UseTrack</title>
 </head>
+
 <body>
-    <side-bar
-    style="position: absolute;">
+    <side-bar style="position: absolute;">
     </side-bar>
 
     <main>
@@ -21,11 +24,11 @@
         </div>
 
         <div class="new_task">
-                <button id="addTaskBtn">
-                    <i class="fa-solid fa-plus"></i>
-                    Nova Tarefa
-                </button>
-            </div>
+            <button id="addTaskBtn">
+                <i class="fa-solid fa-plus"></i>
+                Nova Tarefa
+            </button>
+        </div>
 
         <div class="task_cards">
             <div class="task_dashboard">
@@ -101,7 +104,7 @@
                             <i class="fa-solid fa-calendar"></i>
                             <span></span>
                         </div>
-                        
+
                         <div class="hour_state">
                             <i class="fa-solid fa-clock"></i>
                             <span></span>
@@ -125,7 +128,7 @@
                             <i class="fa-solid fa-calendar"></i>
                             <span></span>
                         </div>
-                        
+
                         <div class="hour_state">
                             <i class="fa-solid fa-clock"></i>
                             <span></span>
@@ -140,54 +143,56 @@
             </div>
         </div>
     </main>
-    
+
     <div id="taskModal" class="modal">
-    <div class="modal_content">
-        <div class="modal_header">
-            <h3>Nova Tarefa</h3>
-            <span class="close">&times;</span>
-        </div>
-        <div class="modal_body">
-            <form id="taskForm">
-                <div class="form_group">
-                    <label for="taskTitle">Título da Tarefa *</label>
-                    <input type="text" id="taskTitle" placeholder="Digite o título da tarefa" required>
-                </div>
-                
-                <div class="form_group">
-                    <label for="taskDescription">Descrição</label>
-                    <textarea id="taskDescription" placeholder="Digite a descrição da tarefa..." rows="3"></textarea>
-                </div>
-                
-                <div class="form_row">
+        <div class="modal_content">
+            <div class="modal_header">
+                <h3>Nova Tarefa</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal_body">
+                <form id="taskForm">
                     <div class="form_group">
-                        <label for="taskDate">Data</label>
-                        <input type="date" id="taskDate">
+                        <label for="taskTitle">Título da Tarefa *</label>
+                        <input type="text" id="taskTitle" placeholder="Digite o título da tarefa" required>
                     </div>
-                    
+
                     <div class="form_group">
-                        <label for="taskTime">Hora</label>
-                        <input type="time" id="taskTime">
+                        <label for="taskDescription">Descrição</label>
+                        <textarea id="taskDescription" placeholder="Digite a descrição da tarefa..."
+                            rows="3"></textarea>
                     </div>
-                </div>
-                
-                <div class="form_group">
-                    <label for="taskPriority">Prioridade</label>
-                    <select id="taskPriority">
-                        <option value="low">Baixa</option>
-                        <option value="medium">Média</option>
-                        <option value="high">Alta</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-        <div class="modal_footer">
-            <button id="cancelTaskBtn">Cancelar</button>
-            <button id="saveTaskBtn">Salvar Tarefa</button>
+
+                    <div class="form_row">
+                        <div class="form_group">
+                            <label for="taskDate">Data</label>
+                            <input type="date" id="taskDate">
+                        </div>
+
+                        <div class="form_group">
+                            <label for="taskTime">Hora</label>
+                            <input type="time" id="taskTime">
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <label for="taskPriority">Prioridade</label>
+                        <select id="taskPriority">
+                            <option value="low">Baixa</option>
+                            <option value="medium">Média</option>
+                            <option value="high">Alta</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal_footer">
+                <button id="cancelTaskBtn">Cancelar</button>
+                <button id="saveTaskBtn">Salvar Tarefa</button>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="..//scripts/modal/task-modal.js"></script>
+    <script src="../scripts/pages/task-modal.js"></script>
 </body>
+
 </html>

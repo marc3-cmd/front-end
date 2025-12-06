@@ -174,5 +174,5 @@ async function deleteUser() {
 function handleLogout() {
     localStorage.clear();
     sessionStorage.clear();
-    window.location.replace("/login.html");
+    window.location.replace("/src/pages/login.html");
 }

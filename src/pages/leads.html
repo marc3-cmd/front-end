@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funil de Vendas | UseTrack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/pages/leads.css">
     <script src="../scripts/components/sidebar-component.js"></script>
 </head>
+
 <body>
     <side-bar style="position: absolute; left: 0; top: 0;"></side-bar>
     <div class="kanban-wrapper">
@@ -21,7 +26,7 @@
         </div>
 
         <div class="kanban-container" id="kanbanContainer">
-            
+
             <div class="kanban-column" data-stage-id="1">
                 <h3 class="column-title">Meus Leads <span>(1)</span></h3>
                 <div class="column-header-progress">
@@ -37,25 +42,25 @@
                     <div class="progress-bar" style="width: 30%;"></div>
                 </div>
                 <div class="lead-list" id="stage-2">
-                    </div>
+                </div>
             </div>
-            
+
             <div class="kanban-column" data-stage-id="3">
                 <h3 class="column-title">Proposta <span>(20)</span></h3>
                 <div class="column-header-progress">
                     <div class="progress-bar" style="width: 60%;"></div>
                 </div>
                 <div class="lead-list" id="stage-3">
-                    </div>
+                </div>
             </div>
-            
+
             <div class="kanban-column" data-stage-id="4">
                 <h3 class="column-title">Fechado <span>(6)</span></h3>
                 <div class="column-header-progress">
                     <div class="progress-bar final-stage" style="width: 100%;"></div>
                 </div>
                 <div class="lead-list" id="stage-4">
-                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -99,7 +104,7 @@
                     <p id="leadModalMessage" class="message"></p>
 
                     <div class="modal-footer">
-                        <button type="button" id="deleteLeadBtn" class="delete-btn" >Excluir Lead</button>
+                        <button type="button" id="deleteLeadBtn" class="delete-btn">Excluir Lead</button>
                         <button type="submit" id="saveLeadBtn">Salvar Lead</button>
                     </div>
                 </form>
@@ -107,7 +112,7 @@
 
             <div id="followups" class="tab-content">
                 <div class="followup-history" id="followUpHistory"></div>
-                
+
                 <div class="new-followup-form">
                     <h4>Agendar Próxima Interação</h4>
                     <form id="followUpForm">
@@ -134,4 +139,5 @@
     <script type="module" src="../scripts/pages/leads.js"></script>
     <script src="../scripts/middlewares/protectAPI.js"></script>
 </body>
+
 </html>

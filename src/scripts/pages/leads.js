@@ -373,10 +373,10 @@ const editFollowUp = async (followUpId) => {
     switchTab('followups'); // Garante que a aba esteja aberta
 };
 
-const updateLeadStage = async (leadId, newStageId) => {
+const updateLeadStage = async (leadId, stageId) => {
     const url = `${BASE_URL}/leads/${leadId}/stage`;
     try {
-        await fetchData(url, "PUT", { newStageId: parseInt(newStageId) });
+        await fetchData(url, "PUT", { stageId: parseInt(stageId) });
         await fetchLeads();
         return true;
     } catch (error) {
@@ -405,9 +405,9 @@ const saveLead = async () => {
     const title = document.getElementById('leadTitle').value;
     const clientEmail = document.getElementById('clientEmailInput').value;
     const value = document.getElementById('leadValue').value;
-    const initialStageId = document.getElementById('stageSelect').value;
+    const selectStageId = document.getElementById('stageSelect').value;
 
-    if (!title || !clientEmail || !initialStageId) {
+    if (!title || !clientEmail || !selectStageId) {
         alert("Todos os campos obrigatórios devem ser preenchidos.");
         return;
     }
@@ -416,19 +416,30 @@ const saveLead = async () => {
         title,
         clientEmail: clientEmail,
         value: parseFloat(value) || 0,
-        initialStageId: parseInt(initialStageId),
     };
 
     try {
         if (currentLeadId) {
-            await fetchData(`${BASE_URL}/leads/${currentLeadId}`, "PUT", leadData); // Atualizar lead existente
+
+            const updateLeadPayload = {
+                ...leadData,
+                stageId: parseInt(selectStageId),
+            }
+
+            await fetchData(`${BASE_URL}/leads/${currentLeadId}`, "PUT", updateLeadPayload); // Atualizar lead existente
         } else {
-            await fetchData(`${BASE_URL}/leads`, "POST", leadData); // Criar nova lead
+            const createPayload = {
+                ...leadData,
+                initialStageId: parseInt(selectStageId),
+            }
+
+            await fetchData(`${BASE_URL}/leads`, "POST", createPayload); // Criar nova lead
         }
         await fetchLeads(); // Recarregar as leads
         closeLeadModal(); // Fechar o modal
     } catch (error) {
         console.error("Erro ao salvar a lead:", error);
+        alert(`Falha ao salvar a Lead: ${error.message}`);
     }
 };
 

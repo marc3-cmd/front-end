@@ -478,6 +478,9 @@ class Sidebar extends HTMLElement {
     }
 
     performLogout() {
+        localStorage.clear();
+        sessionStorage.clear();
+
         localStorage.removeItem('userToken');
         localStorage.removeItem('userData');
         localStorage.removeItem('authToken'); 

@@ -94,7 +94,7 @@
                             class="form-control"
                             placeholder="*******"
                         >
-                        <i class="fa-regular fa-eye-slash password-icon"></i>
+                        <i class="fa-regular fa-eye-slash password-icon" id="togglePassword"></i>
                     </div>
                 </div>
 
@@ -157,17 +157,30 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn-default">
-                <i class="fa-solid fa-check"></i>
-                Criar conta
-            </button>
-
-           <a href="./login.html" class="btn-secondary">
-                Já possui conta?
-            </a>
+            <div class="buttom-container">
+                <button type="submit" class="btn-default">
+                    <i class="fa-solid fa-check"></i>
+                    Criar conta
+                </button>
+                
+                           <a href="./login.html" class="btn-secondary">
+                    Já possui conta?
+                </a>
+            </div>
         </form>
     </main>
 
     <script src="../scripts/pages/register.js"></script>
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('passwordRegister');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>
 </body>
 </html>

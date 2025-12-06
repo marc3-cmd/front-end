@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://usetrack-backend-production.up.railway.app';
 
 let isRefreshing = false;
 let subscribers = []; // Fila de requisições que aguardam o novo token
@@ -62,6 +62,26 @@ async function refreshAccessToken() {
     }
 }
 
+
+// Exemplo de função de segurança centralizada
+function handleTokenExpiration(errorMessage = "Sua sessão expirou.") {
+    console.warn("Token expirado/inválido. Limpando localStorage e redirecionando.");
+    
+    // 1. Notifica o usuário
+    alert(errorMessage); 
+
+    // 2. Remove os tokens do localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("refresh");
+    
+    // 3. Redireciona para a tela de login
+    window.location.replace("/login.html");
+    
+    // 4. Lança um erro para interromper a execução da promessa/código chamador
+    throw new Error("Sessão expirada. Redirecionamento forçado.");
+}
+
+
 // Função para fazer requisição à API com tratamento de tokens e refresh
 export async function fetchData(url, method = "GET", body = null) {
     let accessToken = getAccessToken();
@@ -100,10 +120,7 @@ export async function fetchData(url, method = "GET", body = null) {
                 if (!newToken) {
                     
                     onRefreshed(null); // Notifica a fila com token nulo
-                    console.warn("Falha ao renovar o token. Redirecionando para login...");
-
-                    window.location.href = '../pages/login.html';
-                    return;
+                    handleTokenExpiration("Sua sessão expirou. Por favor, faça login novamente.");  
                 }
                 
                 // Renova o token e notifica todas as requisições em espera
@@ -116,7 +133,7 @@ export async function fetchData(url, method = "GET", body = null) {
             } catch (err) {
                 isRefreshing = false;
                 onRefreshed(null);
-                throw err;
+                handleTokenExpiration("Falha na rede durante a renovação da sessão.");
             }
         
         // 2. Se o refresh JÁ estiver em andamento, ADICIONA à fila
@@ -124,36 +141,43 @@ export async function fetchData(url, method = "GET", body = null) {
             console.log("Renovação já em andamento, esperando novo token...");
             
             // Cria uma Promessa que será resolvida quando onRefreshed for chamada
-            const newAccessTokenPromise = new Promise(resolve => {
+            const newAccessTokenPromise = new Promise((resolve, reject) => {
                 subscribeTokenRefresh(token => {
-                    resolve(token);
+                    if(token) {
+                        resolve(token);
+                    }else {
+                        reject(new Error("Renovação de token falhou."));
+                    }
                 });
             });
 
-            const newToken = await newAccessTokenPromise;
-
-            if (!newToken) {
-                // Se a renovação falhou, não tenta a requisição e retorna
-                return; 
+            try {
+                const newToken = await newAccessTokenPromise;
+                accessToken = newToken;
+            } catch (error) {
+                // Lança o erro para quem estava na fila (handleTokenExpiration já foi chamado pelo bloco inicial)
+                throw error; 
             }
-            
-            // Usa o novo token para esta requisição
-            accessToken = newToken;
         }
 
         // Reenvia a requisição com o token ATUALIZADO (seja o recém-obtido ou o que estava em espera)
         response = await makeRequest(accessToken);
     }
     
-    // --- LÓGICA DE TRATAMENTO DE RESPOSTA (INALTERADA) ---
 
     // Se a resposta não for OK, lança um erro
     if (!response.ok) {
+        // Se 401/403 novamente, força o logout (caso o token recém-emitido seja inválido por algum motivo)
+        if (response.status === 401 || response.status === 403) {
+            handleTokenExpiration("Acesso não autorizado. Por favor, faça login.");
+        }
+        
         const errorText = await response.json().catch(() => ({ message: 'Erro desconhecido' }));
-        throw new Error(errorText.message || 'Erro desconhecido');
+        const error = new Error(errorText.message || 'Erro desconhecido');
+        (error).status = response.status;
+        throw error;
     }
 
-    // Se o status da resposta for 204, não há dados
     if (response.status === 204) {
         return null;
     }

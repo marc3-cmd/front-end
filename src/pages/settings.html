@@ -29,7 +29,7 @@
         <div class="settings_content">
 
             <!-- ========================================================= -->
-            <!--                 ABA DE PERFIL (Corrigida)                -->
+            <!--                 ABA DE PERFIL                             -->
             <!-- ========================================================= -->
             <div id="tab-perfil" class="tab-pane active">
                 <div class="settings_card">
@@ -125,7 +125,7 @@
             </div>
 
             <!-- ========================================================= -->
-            <!--                  ABA DE SEGURANÇA (SEM MUDANÇAS)         -->
+            <!--                  ABA DE SEGURANÇA                          -->
             <!-- ========================================================= -->
             <div id="tab-seguranca" class="tab-pane">
                 <div class="settings_card">
@@ -135,20 +135,20 @@
 
                     <div class="form_group">
                         <label class="form_label">Senha Atual</label>
-                        <input class="form_input" type="password" placeholder="********">
+                        <input id="inputCurrentPassword" class="form_input" type="password" placeholder="********">
                     </div>
 
                     <div class="form_group">
                         <label class="form_label">Nova Senha</label>
-                        <input class="form_input" type="password" placeholder="********">
+                        <input id="inputNewPassword" class="form_input" type="password" placeholder="********">
                     </div>
 
                     <div class="form_group">
                         <label class="form_label">Confirmar Senha</label>
-                        <input class="form_input" type="password" placeholder="********">
+                        <input id="inputConfirmPassword" class="form_input" type="password" placeholder="********">
                     </div>
 
-                    <button class="btn_primary">
+                    <button id="changePasswordBtn" class="btn_primary">
                         <i class="fa-solid fa-key"></i>
                         Alterar Senha
                     </button>
