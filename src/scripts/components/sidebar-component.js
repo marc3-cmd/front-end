@@ -311,7 +311,7 @@ class Sidebar extends HTMLElement {
             <nav id="sidebar" class="open-sidebar">
                 <div id="sidebar_content">
                     <div id="user">
-                        <img src="../../public/assets/img/resized.png" id="user_avatar" alt="Avatar">
+                        <img src="../../assets/icon/resized.png" id="user_avatar" alt="Avatar">
                         <div id="user_infos">
                             <span class="item-description">USETRACK</span>
                             <span class="item-description">CRM</span>

@@ -136,8 +136,8 @@ body {
     outline: none;
 }
 
-.input-container input:focus-within {
-    outline: 2px solid #8B5CF6;
+.input-container :focus {
+    outline: none;
 }
 
 input:-webkit-autofill {
